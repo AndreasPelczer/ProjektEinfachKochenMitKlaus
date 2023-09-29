@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/dataFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.einloggohnegoogle.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dataFragment"
+        android:name="com.example.einloggohnegoogle.ui.DataFragment"
+        android:label="fragment_data"
+        tools:layout="@layout/fragment_data">
+        <action
+            android:id="@+id/action_dataFragment_to_NeuesRezeptFragment"
+            app:destination="@id/neuesRezeptFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_VideoFragment"
+            app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_rezeptDetailFragment"
+            app:destination="@id/rezeptDetailFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_tipFragment"
+            app:destination="@id/tipFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/neuesRezeptFragment"
+        android:name="com.example.einloggohnegoogle.ui.NeuesRezeptFragment"
+        android:label="fragment_neues_rezept"
+        tools:layout="@layout/fragment_neues_rezept">
+        <action
+            android:id="@+id/action_neuesRezept_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.einloggohnegoogle.ui.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video">
+        <action
+            android:id="@+id/action_videoFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/rezeptDetailFragment"
+        android:name="com.example.einloggohnegoogle.ui.RezeptDetailFragment"
+        android:label="fragment_rezept_detail"
+        tools:layout="@layout/fragment_rezept_detail">
+        <action
+            android:id="@+id/action_rezeptDetailFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/tipFragment"
+        android:name="com.example.einloggohnegoogle.ui.TipFragment"
+        android:label="fragment_tip"
+        tools:layout="@layout/fragment_tip" >
+        <action
+            android:id="@+id/action_tipFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
+
+</navigation>

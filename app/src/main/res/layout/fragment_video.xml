@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:navGraph="@navigation/nav_graph"
+    tools:context=".ui.VideoFragment">
+
+
+    <!-- activity_main.xml -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView1"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/recyclerView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView3"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/recyclerView2"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/VideoBackBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="128dp"
+        android:contentDescription="@string/VideoBackBTN"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/VorspeiseTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/recyclerView1"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView1" />
+
+    <TextView
+        android:id="@+id/HauptgangTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/recyclerView2"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView2" />
+
+    <TextView
+        android:id="@+id/SuessspeiseTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recyclerView3"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

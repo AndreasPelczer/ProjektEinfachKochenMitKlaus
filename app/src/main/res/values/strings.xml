@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">einfachkochenmitonkelklaus</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Auf Wiedersehen</string>
+    <string name="content_description_neues_rezept_button">Neues Rezept hinzufügen</string>
+    <string name="speichern">Speichern</string>
+    <string name="abbruch">Abbruch</string>
+    <string name="rezeptname_eingeben">Rezeptname eingeben</string>
+    <string name="zubereitung">Zubereitung</string>
+    <string name="zutaten">Zutaten</string>
+    <string name="name">Rezeptname</string>
+    <string name="Zutaten">Zutaten</string>
+    <string name="Zubereitung">Zubereitung</string>
+    <string name="VideoBackBTN">VideoBackBTN</string>
+    <string name="RezeptName">Rezeptname</string>
+    <string name="ueberschrift">Einfach kochen mit Klaus</string>
+    <string name="image_description">lalal</string>
+    <string name="refresh">Refresh</string>
+    <string name="zur_ck">Zurück</string>
+    <string name="i_love_cats">Ich liebe Katzen</string>
+    <string name="textview">no text</string>
+    <string name="info">Katzenhaar…mir schmeckts</string>
+    <string name="einstellungen">Einstellungen</string>
+    <string name="chat">Chat</string>
+    <string name="logout">Logout</string>
+    <string name="tip">Tip vom Profi</string>
+    <string name="_vom_prifi">Tip vom Prifi</string>
+    <string name="video_hinzufügen">Videolink von Youtube einfügen</string>
+    <string name="rezept_l_schen">Rezept löschen</string>
+
+</resources>
