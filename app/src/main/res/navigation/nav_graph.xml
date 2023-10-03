@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_videoFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
+        <action
+            android:id="@+id/action_videoFragment_to_infoEinsFragment"
+            app:destination="@id/infoEinsFragment" />
     </fragment>
 
 
@@ -84,5 +87,14 @@
         android:name="com.example.einloggohnegoogle.ui.KlausFragment"
         android:label="fragment_klaus"
         tools:layout="@layout/fragment_klaus" />
+    <fragment
+        android:id="@+id/infoEinsFragment"
+        android:name="com.example.einloggohnegoogle.InfoEinsFragment"
+        android:label="fragment_info_eins"
+        tools:layout="@layout/fragment_info_eins" >
+        <action
+            android:id="@+id/action_infoEinsFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+    </fragment>
 
 </navigation>

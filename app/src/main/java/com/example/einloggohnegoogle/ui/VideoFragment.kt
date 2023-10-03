@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -132,9 +133,30 @@ class VideoFragment : Fragment() {
             findNavController().navigate(R.id.dataFragment)
            // activity?.onBackPressed()
         }
+
+        // Finde den Button durch seine ID
+        val hauptspeisen: TextView = view.findViewById(R.id.HauptgangTV)
+        // Füge der TextView eine Klickaktion hinzu
+        hauptspeisen.setOnClickListener {
+            // Hier kannst du die Aktion ausführen, die passieren soll, wenn die TextView geklickt wird
+            // Zum Beispiel den Nutzer zurücknavigieren
+            findNavController().navigate(R.id.infoEinsFragment)
+        }
+        val vorspeisen: TextView = view.findViewById(R.id.VorspeiseTV)
+        // Füge der TextView eine Klickaktion hinzu
+        vorspeisen.setOnClickListener {
+            // Hier kannst du die Aktion ausführen, die passieren soll, wenn die TextView geklickt wird
+            // Zum Beispiel den Nutzer zurücknavigieren
+            findNavController().navigate(R.id.infoEinsFragment)
+        }
+        val suesses: TextView = view.findViewById(R.id.SuessspeiseTV)
+        // Füge der TextView eine Klickaktion hinzu
+        suesses.setOnClickListener {
+            // Hier kannst du die Aktion ausführen, die passieren soll, wenn die TextView geklickt wird
+            // Zum Beispiel den Nutzer zurücknavigieren
+            findNavController().navigate(R.id.infoEinsFragment)
+        }
     }
-
-
     private fun extractVideoId(youtubeUrl: String): String {
         val pattern =
             "(?<=watch\\?v=|/videos/|embed/|youtu.be/|/v/|/e/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2Fvideos\u200C\u200B|youtu.be%2F)[^#&?\\n]*"
