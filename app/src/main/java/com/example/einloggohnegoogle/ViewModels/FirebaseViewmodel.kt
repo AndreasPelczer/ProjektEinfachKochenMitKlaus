@@ -130,6 +130,9 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
             }
         }
     }
+    fun deleteRezept(rezept: Rezept) {
+        repository.deleteRezept(rezept)
+    }
 
 }
 

@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         // Beispiel Rezepte für Vorspeisen
         /*     val vorspeisen = mutableListOf<Rezept>()
                vorspeisen.add(

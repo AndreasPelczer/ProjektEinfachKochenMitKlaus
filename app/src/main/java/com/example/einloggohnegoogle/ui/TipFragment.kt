@@ -39,21 +39,21 @@ class TipFragment : Fragment() {
         // Set the image resource to the ImageView
         imageView.setImageResource(R.drawable.ede9aab6043917b249a4aec7abc0ea5e)
 
-
-        binding.btnRefresh.setOnClickListener {
+        binding.refreshBTN.setOnClickListener {
             viewModel.loadData()
         }
         binding.itemRv.setHasFixedSize(true)
 
         viewModel.items.observe(viewLifecycleOwner) { items ->
+            Log.d("Fragment Lifecycle", "onViewCreated invoked")
             binding.itemRv.adapter = TipAdapter(items)
             binding.itemRv.layoutManager = LinearLayoutManager(requireContext())
         }
-        binding.button2.setOnClickListener {
+        binding.tipbackBTN.setOnClickListener {
             Log.d("Button Click", "Button clicked")
 
             // Navigiere zurück zur vorherigen Ansicht (equivalent zur Zurück-Taste)
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.dataFragment)
         }
     }
 

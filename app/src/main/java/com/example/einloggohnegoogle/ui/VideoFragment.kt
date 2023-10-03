@@ -1,20 +1,23 @@
 package com.example.einloggohnegoogle.ui
 
+import KlausFragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.data.YouTubeVideo
-import com.example.einloggohnegoogle.adapter.YouTubeVideoAdapter
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.adapter.YouTubeVideoAdapter
+import com.example.einloggohnegoogle.data.YouTubeVideo
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
-import com.example.einloggohnegoogle.databinding.FragmentNeuesRezeptBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -122,21 +125,24 @@ class VideoFragment : Fragment() {
 
         // Finde den ImageView durch seine ID
         val videoBackButton: ImageView = view.findViewById(R.id.VideoBackBTN)
-
         // Füge dem ImageView eine Klickaktion hinzu
         videoBackButton.setOnClickListener {
             // Hier kannst du die Aktion ausführen, die passieren soll, wenn der Button geklickt wird
             // Zum Beispiel den Nutzer zurücknavigieren
-            activity?.onBackPressed()
+            findNavController().navigate(R.id.dataFragment)
+           // activity?.onBackPressed()
         }
     }
 
+
     private fun extractVideoId(youtubeUrl: String): String {
-        val pattern = "(?<=watch\\?v=|/videos/|embed/|youtu.be/|/v/|/e/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2Fvideos\u200C\u200B|youtu.be%2F)[^#&?\\n]*"
+        val pattern =
+            "(?<=watch\\?v=|/videos/|embed/|youtu.be/|/v/|/e/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2Fvideos\u200C\u200B|youtu.be%2F)[^#&?\\n]*"
         val compiledPattern = Regex(pattern)
         val matcher = compiledPattern.find(youtubeUrl)
         return matcher?.value ?: ""
     }
+
 }
 
 

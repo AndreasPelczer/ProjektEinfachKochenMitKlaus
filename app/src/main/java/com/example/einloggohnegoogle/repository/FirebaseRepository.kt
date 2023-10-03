@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.data.database.RezeptDataBase
+import com.example.einloggohnegoogle.data.database.RezeptDataBaseDao
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
@@ -103,6 +104,8 @@ class FirebaseRepository(
         return rezeptDataBase.dao.getAllItems()
     }
 
+
+
     suspend fun saveRezeptToFirestore(
         name: String,
         zutaten: String,
@@ -167,6 +170,8 @@ class FirebaseRepository(
     fun getRezeptDetail(id: String): Rezept {
         return rezeptDataBase.dao.getItemById(id)
     }
+
+
 
 }
 

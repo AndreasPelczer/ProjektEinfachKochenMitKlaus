@@ -22,6 +22,7 @@ import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.ViewModels.MenuViewModel.MenuViewModel
 import com.example.einloggohnegoogle.data.datamodels.MenuState
+import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -33,7 +34,12 @@ class DataFragment : Fragment() {
     val viewModel: FirebaseViewmodel by viewModels()
     private lateinit var binding: FragmentDataBinding
     private lateinit var menuViewModel: MenuViewModel
+    override fun onResume() {
+        super.onResume()
 
+        // Hier rufst du die Methode auf, um Daten zu laden oder zu aktualisieren
+        viewModel.loadfromFireStore()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,21 +49,27 @@ class DataFragment : Fragment() {
         binding = FragmentDataBinding.inflate(inflater, container, false)
         return binding.root
     }
+    private fun setupRecyclerView(rezeptDataList: List<Rezept>) {
+        // Initialisiere den Adapter
+        val rezeptAdapter = RezeptAdapter(viewModel, rezeptDataList, findNavController())
 
+        // Verbinde den Adapter mit dem RecyclerView
+        binding.rezepteRecyclerView.adapter = rezeptAdapter
 
+        // Setze das Layout-Manager für den RecyclerView
+        binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
-
         binding.rezepteRecyclerView.setHasFixedSize(true)
-        viewModel.rezeptDataList.observe(viewLifecycleOwner) {rezept->
-            Log.d("Homefragment","$rezept")
-            binding.rezepteRecyclerView.adapter = RezeptAdapter(viewModel,rezept, NavController(requireContext())
-            )
+
+        viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
+            Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
+
+            // Hier wird die RecyclerView aktualisiert
+            setupRecyclerView(rezeptDataList)
         }
 
         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
@@ -91,6 +103,8 @@ class DataFragment : Fragment() {
 
             // Setze das Layout-Manager für den RecyclerView
             binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            setupRecyclerView(rezeptDataList)
+
         }
 
 

@@ -3,6 +3,7 @@ package com.example.einloggohnegoogle.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -43,6 +44,7 @@ interface RezeptDataBaseDao {
 
     @Query("DELETE FROM rezept_table")
     fun deleteAllRezepte()
+
 
 
     @Query("SELECT * FROM rezept_table")

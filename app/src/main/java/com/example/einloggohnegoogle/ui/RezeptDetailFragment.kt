@@ -49,6 +49,9 @@ class RezeptDetailFragment : Fragment() {
         }
 
         binding.rezeptBearbeitenBTN.setOnClickListener {  }
+        binding.rezeptLoeschenBTN.setOnClickListener{
+
+        }
     }
 
     // Annahme: Funktion, um ein Rezept basierend auf der ID zu erhalten

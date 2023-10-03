@@ -76,5 +76,10 @@
             android:id="@+id/action_tipFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/klausFragment"
+        android:name="com.example.einloggohnegoogle.ui.KlausFragment"
+        android:label="fragment_klaus"
+        tools:layout="@layout/fragment_klaus" />
 
 </navigation>
