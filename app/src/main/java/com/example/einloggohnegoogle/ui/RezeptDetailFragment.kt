@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -48,16 +49,14 @@ class RezeptDetailFragment : Fragment() {
             navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToDataFragment())
         }
 
-        binding.rezeptBearbeitenBTN.setOnClickListener {  }
+        binding.rezeptBearbeitenBTN.setOnClickListener {
+            val navController =findNavController()
+            navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToNeuesRezeptFragment2())
+        }
         binding.rezeptLoeschenBTN.setOnClickListener{
-
+            Toast.makeText(requireContext(), "Keine Berechtigung", Toast.LENGTH_SHORT).show()
+            // Zeige einen Toast an, wenn keine Berechtigung zum Löschen vorhanden ist
         }
     }
 
-    // Annahme: Funktion, um ein Rezept basierend auf der ID zu erhalten
-    private fun getRezeptById(id: Long): Rezept? {
-        // Implementieren Sie die Logik, um das Rezept basierend auf der ID zu erhalten
-        // Rückgabe des Rezepts oder null, wenn nicht gefunden
-        return null
-    }
 }

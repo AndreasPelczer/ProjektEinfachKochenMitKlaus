@@ -1,13 +1,17 @@
 package com.example.einloggohnegoogle.repository
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.data.database.RezeptDataBase
 import com.example.einloggohnegoogle.data.database.RezeptDataBaseDao
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.Dispatchers
@@ -170,6 +174,9 @@ class FirebaseRepository(
     fun getRezeptDetail(id: String): Rezept {
         return rezeptDataBase.dao.getItemById(id)
     }
+    private val database: DatabaseReference = FirebaseDatabase.getInstance().reference.child("rezepte")
+
+
 
 
 

@@ -1,6 +1,7 @@
 package com.example.einloggohnegoogle.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,8 @@ class NeuesRezeptFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.RezeptSpeichernBTN.setOnClickListener {
+            Log.e("Buttonrezepspeichern Button gespeichert","Rezept gespeichert")
+
             // Benutzereingaben aus den EditText-Feldern abrufen
             val name = binding.nameET.text.toString()
             val zutaten = binding.zutatenET.text.toString()
@@ -49,6 +52,7 @@ class NeuesRezeptFragment : Fragment() {
                     videoupload = videoupload
                 )
                 viewModel.insertRezeptData(rezeptData)
+                Log.e("rezept gespeichert","Rezept in Firebasegespeichert")
 
                 // Navigiere zurück zum DataFragment
                 findNavController().navigate(R.id.dataFragment)
