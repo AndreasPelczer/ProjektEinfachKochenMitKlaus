@@ -31,7 +31,8 @@ interface RezeptDataBaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertRezept(rezept: Rezept)
-
+    @Delete
+    fun deleteRezept(rezept: Rezept)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateItem(item: Rezept)
