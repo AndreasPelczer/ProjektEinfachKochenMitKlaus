@@ -17,11 +17,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.879">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="692dp">
+            android:layout_width="411dp"
+            android:layout_height="516dp">
 
             <TextView
                 android:id="@+id/textView"
@@ -37,14 +38,15 @@
                 android:id="@+id/tipBTN"
                 android:layout_width="436dp"
                 android:layout_height="478dp"
+                android:layout_marginBottom="-50dp"
                 android:contentDescription="@string/image_description"
                 android:src="@drawable/ede9aab6043917b249a4aec7abc0ea5e"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.939"
+                app:layout_constraintHorizontal_bias="0.935"
                 app:layout_constraintStart_toEndOf="@+id/textViewCV"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.995" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/textViewCV"

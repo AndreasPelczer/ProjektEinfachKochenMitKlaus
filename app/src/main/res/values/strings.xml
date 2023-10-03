@@ -31,5 +31,6 @@
     <string name="Hauptgang">Hauptspeisen</string>
     <string name="Hauptspeisen">Hauptspeisen</string>
     <string name="s_es">Süßes</string>
+    <string name="alftext" translatable="false">Interresantes über mein Lieblingsessen</string>
 
 </resources>
