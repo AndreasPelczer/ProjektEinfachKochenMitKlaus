@@ -16,66 +16,61 @@
         android:id="@+id/frameLayout"
         android:layout_width="409dp"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".ui.HomeFragment">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.109"
+            tools:listitem="@layout/list_item" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView2"
+            android:layout_width="201dp"
+            android:layout_height="196dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
+
+
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.082"
-            tools:listitem="@layout/list_item" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-
-
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView1"
-            app:layout_constraintVertical_bias="0.136"
+            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/list_item" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
             android:orientation="horizontal"
+
+
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
-            app:layout_constraintVertical_bias="0.523"
+            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/list_item" />
 
         <ImageView
@@ -87,32 +82,50 @@
             android:src="@drawable/baseline_arrow_back_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/HauptgangTV"
+            android:layout_width="191dp"
+            android:layout_height="194dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="22dp"
+            android:text="@string/s_es"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/VideoBackBTN"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/recyclerView3"
+            app:layout_constraintTop_toBottomOf="@+id/VorspeiseTV"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/VorspeiseTV"
+            android:layout_width="191dp"
+            android:layout_height="202dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="27dp"
+            android:text="@string/Hauptspeisen"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView3"
+            app:layout_constraintEnd_toStartOf="@+id/recyclerView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView1" />
+
+        <TextView
+            android:id="@+id/SuessspeiseTV"
+            android:layout_width="191dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/vorspeisen"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/recyclerView1"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/VorspeiseTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="48dp" />
-
-    <TextView
-        android:id="@+id/HauptgangTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="273dp" />
-
-    <TextView
-        android:id="@+id/SuessspeiseTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="498dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
