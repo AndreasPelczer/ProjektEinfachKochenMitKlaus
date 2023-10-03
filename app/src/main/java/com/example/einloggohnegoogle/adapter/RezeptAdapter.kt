@@ -50,7 +50,4 @@ class RezeptAdapter(
             holder.itemView.findNavController().navigate(action)
         }
     }
-
-
-
 }

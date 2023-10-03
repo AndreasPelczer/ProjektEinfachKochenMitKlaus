@@ -95,10 +95,10 @@
             android:text="@string/s_es"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/VideoBackBTN"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.042"
             app:layout_constraintStart_toEndOf="@+id/recyclerView3"
             app:layout_constraintTop_toBottomOf="@+id/VorspeiseTV"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/VorspeiseTV"
@@ -133,6 +133,7 @@
             app:layout_constraintStart_toEndOf="@+id/recyclerView1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
