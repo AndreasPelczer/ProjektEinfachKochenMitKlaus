@@ -10,11 +10,9 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
-import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentRezeptDetailBinding
 
 class RezeptDetailFragment : Fragment() {
@@ -43,14 +41,6 @@ class RezeptDetailFragment : Fragment() {
                 binding.RezeptNameTV.text = it.name
                 binding.RezeptZutatenTV.text = it.zutaten
                 binding.RezeptZubereitungTV.text = it.zubereitung
-                // baue eine URI aus der Bild URL
-           /*     val imgUri = it.videoupload.toUri().buildUpon().scheme("https").build()
-
-// lade das Bild mithilfe der URI in die ImageView und runde die Ecken ab
-                binding.videoView4.load(imgUri) {
-                    error(R.drawable.ic_android_black_24dp)
-                    transformations(RoundedCornersTransformation(10f))
-                }*/
             }
         }
 
@@ -60,14 +50,24 @@ class RezeptDetailFragment : Fragment() {
         }
 
         binding.rezeptBearbeitenBTN.setOnClickListener {
-            val navController =findNavController()
-            navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToNeuesRezeptFragment2())
+            // Nehmen an, dass die id nicht null ist
+            val id = arguments?.getString("id") ?: ""
+            navigateToRezeptBearbeiten(id)
         }
+
         binding.rezeptLoeschenBTN.setOnClickListener{
             Toast.makeText(requireContext(), "Keine Berechtigung", Toast.LENGTH_SHORT).show()
             // Zeige einen Toast an, wenn keine Berechtigung zum Löschen vorhanden ist
         }
     }
 
+    private fun navigateToRezeptBearbeiten(rezeptId: String) {
+        val action = RezeptDetailFragmentDirections.actionRezeptDetailFragmentToRezeptBearbeitenFragment(
+            id = rezeptId,
+            rezeptName = binding.RezeptNameTV.text.toString(),
+            rezeptZutaten = binding.RezeptZutatenTV.text.toString(),
+            rezeptZubereitung = binding.RezeptZubereitungTV.text.toString()
+        )
+        findNavController().navigate(action)
+    }
 }
-

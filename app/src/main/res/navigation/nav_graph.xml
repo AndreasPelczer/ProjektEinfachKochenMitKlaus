@@ -70,8 +70,8 @@
             android:name="id"
             app:argType="string" />
         <action
-            android:id="@+id/action_rezeptDetailFragment_to_neuesRezeptFragment2"
-            app:destination="@id/neuesRezeptFragment" />
+            android:id="@+id/action_rezeptDetailFragment_to_rezeptBearbeitenFragment"
+            app:destination="@id/rezeptBearbeitenFragment" />
     </fragment>
     <fragment
         android:id="@+id/tipFragment"
@@ -96,5 +96,30 @@
             android:id="@+id/action_infoEinsFragment_to_videoFragment"
             app:destination="@id/videoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/rezeptBearbeitenFragment"
+        android:name="com.example.einloggohnegoogle.ui.RezeptBearbeitenFragment"
+        android:label="Rezept bearbeiten"
+        tools:layout="@layout/fragment_rezept_bearbeiten" >
+
+        <!-- Hier ist die Argumentdefinition für "id" -->
+        <argument
+            android:name="id"
+            app:argType="string" />
+
+        <!-- Weitere Argumente, die du möglicherweise hast -->
+        <argument
+            android:name="rezeptName"
+            app:argType="string" />
+
+        <argument
+            android:name="rezeptZutaten"
+            app:argType="string" />
+
+        <argument
+            android:name="rezeptZubereitung"
+            app:argType="string" />
+    </fragment>
+
 
 </navigation>

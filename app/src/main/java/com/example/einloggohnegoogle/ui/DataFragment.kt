@@ -154,7 +154,6 @@ class DataFragment : Fragment() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_item1_settings -> {
-                    //TODO: facts: funktioniert mit einem random api call.//
                   /*  findNavController().navigate(
                         DataFragmentDirections.actionHomeFragmentToFactsFragment()
                     )*/
