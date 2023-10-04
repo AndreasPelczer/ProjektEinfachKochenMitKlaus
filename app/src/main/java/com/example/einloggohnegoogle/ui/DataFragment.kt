@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -37,6 +38,8 @@ class DataFragment : Fragment() {
     private lateinit var binding: FragmentDataBinding
     private lateinit var menuViewModel: MenuViewModel
     private lateinit var drawerLayout: DrawerLayout
+
+
     override fun onResume() {
         super.onResume()
 
@@ -54,6 +57,8 @@ class DataFragment : Fragment() {
     }
 
     private fun setupRecyclerView(rezeptDataList: List<Rezept>) {
+
+
         // Initialisiere den Adapter
         val rezeptAdapter = RezeptAdapter(viewModel, rezeptDataList, findNavController())
 

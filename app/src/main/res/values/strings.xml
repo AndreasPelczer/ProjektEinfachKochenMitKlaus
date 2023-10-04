@@ -23,7 +23,7 @@
     <string name="einstellungen">Einstellungen</string>
     <string name="chat">Chat</string>
     <string name="logout">Logout</string>
-    <string name="tip">Tip vom Profi</string>
+    <string name="tip">TIP</string>
     <string name="_vom_prifi">Tip vom Prifi</string>
     <string name="video_hinzufügen">Videolink von Youtube einfügen</string>
     <string name="rezept_l_schen">Rezept löschen</string>
@@ -32,5 +32,22 @@
     <string name="Hauptspeisen">Hauptspeisen</string>
     <string name="s_es">Süßes</string>
     <string name="alftext" translatable="false">Interresantes über mein Lieblingsessen</string>
+    <string name="long_text">Die Ungarndeutschen, auch bekannt als Donauschwaben oder Danube Swabians, sind eine ethnische Gruppe von deutschstämmigen Menschen, die hauptsächlich im Königreich Ungarn und den angrenzenden Regionen des Habsburgerreichs siedelten. Ihre Geschichte und Kultur sind eng mit der Auswanderung deutscher Siedler verbunden, die ab dem 18. Jahrhundert in das Gebiet des heutigen Ungarns kamen.
+
+Die Ansiedlung der Ungarndeutschen begann im 18. Jahrhundert, als sie auf Einladung der Habsburgermonarchie in die Regionen des Königreichs Ungarn zogen, um Landwirtschaft zu betreiben und das Land zu kultivieren. Sie brachten ihre eigene Kultur, Sprache, Traditionen und natürlich auch ihre Kochgewohnheiten mit sich.
+
+Die ungarndeutsche Küche ist eine Mischung aus deutschen und ungarischen Einflüssen, wobei regionale Besonderheiten eine große Rolle spielen. Hier sind einige charakteristische Merkmale der Ungarndeutschen Küche:
+
+1. **Deutsche Einflüsse**: Die ungarndeutsche Küche ist stark von den kulinarischen Traditionen der deutschen Heimatregionen beeinflusst, aus denen die Einwanderer stammten. Dazu gehören Gerichte wie Sauerkraut, Wurstwaren, Knödel, Fleischgerichte und verschiedene Kuchen und Gebäck.
+
+2. **Lokale Anpassungen**: Im Laufe der Zeit haben die Ungarndeutschen ihre kulinarischen Gewohnheiten an lokale Gegebenheiten angepasst. So wurden beispielsweise ungarische Zutaten wie Paprika und Gulasch in ihre Küche integriert.
+
+3. **Saisonalität und Regionalität**: Die ungarndeutsche Küche legt großen Wert auf saisonale und regionale Zutaten. Dies ist typisch für traditionelle ländliche Kochstile, bei denen die Verfügbarkeit von Produkten je nach Jahreszeit variiert.
+
+4. **Backwaren und Desserts**: Die Ungarndeutschen sind für ihre vielfältigen Backwaren und Desserts bekannt. Dazu gehören Kuchen, Torten, Plätzchen und andere süße Leckereien, die oft zu besonderen Anlässen oder Feierlichkeiten zubereitet werden.
+
+5. **Einfluss der ungarischen Küche**: Durch die lange Zeit des Zusammenlebens mit der ungarischen Bevölkerung haben sich auch ungarische Einflüsse in die ungarndeutsche Küche eingeschlichen. Das berühmte ungarische Gulasch ist zum Beispiel ein Gericht, das von den Ungarndeutschen übernommen und in ihre eigene Küche integriert wurde.
+
+Die ungarndeutsche Küche spiegelt die Geschichte, die Migration und die kulturelle Verschmelzung dieser ethnischen Gruppe wider. Sie ist ein bedeutender Teil ihrer Identität und wird auch heute noch von den Ungarndeutschen und in manchen Regionen Ungarns geschätzt und gepflegt.</string>
 
 </resources>
