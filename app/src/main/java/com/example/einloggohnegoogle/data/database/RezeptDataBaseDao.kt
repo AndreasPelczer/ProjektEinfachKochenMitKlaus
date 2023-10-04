@@ -31,6 +31,7 @@ interface RezeptDataBaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertRezept(rezept: Rezept)
+
     @Delete
     fun deleteRezept(rezept: Rezept)
 
@@ -45,8 +46,6 @@ interface RezeptDataBaseDao {
 
     @Query("DELETE FROM rezept_table")
     fun deleteAllRezepte()
-
-
 
     @Query("SELECT * FROM rezept_table")
     fun getAllItems(): LiveData<List<Rezept>>
