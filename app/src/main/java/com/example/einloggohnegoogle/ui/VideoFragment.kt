@@ -107,15 +107,15 @@ class VideoFragment : Fragment() {
         }
 
         val recyclerView1: RecyclerView = view.findViewById(R.id.recyclerView1)
-        recyclerView1.layoutManager = LinearLayoutManager(requireContext())
+     //   recyclerView1.layoutManager = LinearLayoutManager(requireContext())
         recyclerView1.adapter = YouTubeVideoAdapter(videos)
 
         val recyclerView2: RecyclerView = view.findViewById(R.id.recyclerView2)
-        recyclerView2.layoutManager = LinearLayoutManager(requireContext())
+      //  recyclerView2.layoutManager = LinearLayoutManager(requireContext())
         recyclerView2.adapter = YouTubeVideoAdapter(videos2)
 
         val recyclerView3: RecyclerView = view.findViewById(R.id.recyclerView3)
-        recyclerView3.layoutManager = LinearLayoutManager(requireContext())
+      //  recyclerView3.layoutManager = LinearLayoutManager(requireContext())
         recyclerView3.adapter = YouTubeVideoAdapter(videos3)
 
         return view
