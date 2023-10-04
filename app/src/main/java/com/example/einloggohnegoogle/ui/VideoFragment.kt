@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -124,7 +125,7 @@ class VideoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Finde den ImageView durch seine ID
+        /* Finde den ImageView durch seine ID
         val videoBackButton: ImageView = view.findViewById(R.id.VideoBackBTN)
         // Füge dem ImageView eine Klickaktion hinzu
         videoBackButton.setOnClickListener {
@@ -132,6 +133,14 @@ class VideoFragment : Fragment() {
             // Zum Beispiel den Nutzer zurücknavigieren
             findNavController().navigate(R.id.dataFragment)
            // activity?.onBackPressed()
+        }*/
+        val videobackBTN: Button = view.findViewById(R.id.videobackBTN)
+        // Füge dem ImageView eine Klickaktion hinzu
+        videobackBTN.setOnClickListener {
+            // Hier kannst du die Aktion ausführen, die passieren soll, wenn der Button geklickt wird
+            // Zum Beispiel den Nutzer zurücknavigieren
+            findNavController().navigate(R.id.dataFragment)
+            // activity?.onBackPressed()
         }
 
         // Finde den Button durch seine ID

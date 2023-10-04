@@ -106,9 +106,6 @@ class DataFragment : Fragment() {
         }
 
 
-        val neuesRezeptButton = binding.neuesRezeptBTN
-
-
         binding.neuesRezeptBTN.setOnClickListener {
             Log.d("ButtonClicked", "Neues Rezept Button wurde geklickt")
             val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
