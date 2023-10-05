@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey
 data class Rezept(
     @PrimaryKey(autoGenerate = false)
     var id: String="",
+    var userId:String="",
     var name: String = "",
     var zubereitung: String = "",
     var zutaten: String = "",

@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentNeuesRezeptBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
@@ -35,27 +35,32 @@ class NeuesRezeptFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.RezeptSpeichernBTN.setOnClickListener {
-            Log.e("Buttonrezepspeichern Button gespeichert","Rezept gespeichert")
+            val currentUser = viewModel.firebaseAuth.currentUser
+            if (currentUser != null) {
 
-            // Benutzereingaben aus den EditText-Feldern abrufen
-            val name = binding.nameET.text.toString()
-            val zutaten = binding.zutatenET.text.toString()
-            val zubereitung = binding.zubereitungET.text.toString()
-            val videoupload = binding.videoHinzuFGen.text.toString()
+                Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
+                val userId = viewModel.getCurrentUserId()
+                // Benutzereingaben aus den EditText-Feldern abrufen
+                val name = binding.nameET.text.toString()
+                val zutaten = binding.zutatenET.text.toString()
+                val zubereitung = binding.zubereitungET.text.toString()
+                val videoupload = binding.videoHinzuFGen.text.toString()
 
-            // Rezept in die Firebase-Datenbank speichern
-            viewModel.viewModelScope.launch(Dispatchers.Main) {
-                val rezeptData = Rezept(
-                    name = name,
-                    zutaten = zutaten,
-                    zubereitung = zubereitung,
-                    videoupload = videoupload
-                )
-                viewModel.insertRezeptData(rezeptData)
-                Log.e("rezept gespeichert","Rezept in Firebasegespeichert")
+                // Rezept in die Firebase-Datenbank speichern
+                viewModel.viewModelScope.launch(Dispatchers.Main) {
+                    val rezeptData = Rezept(
+                        name = name,
+                        zutaten = zutaten,
+                        zubereitung = zubereitung,
+                        videoupload = videoupload,
+                        userId = userId.toString()
+                    )
+                    viewModel.insertRezeptData(rezeptData)
+                    Log.e("rezept gespeichert", "Rezept in Firebasegespeichert")
 
-                // Navigiere zurück zum DataFragment
-                findNavController().navigate(R.id.dataFragment)
+                    // Navigiere zurück zum DataFragment
+                    findNavController().navigate(R.id.dataFragment)
+                }
             }
         }
 

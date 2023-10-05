@@ -41,6 +41,12 @@ class RezeptDetailFragment : Fragment() {
                 binding.RezeptNameTV.text = it.name
                 binding.RezeptZutatenTV.text = it.zutaten
                 binding.RezeptZubereitungTV.text = it.zubereitung
+
+                if (viewModel.getCurrentUserId()== it.userId){
+                    binding.rezeptBearbeitenBTN.visibility=View.VISIBLE
+                }else{
+                    binding.rezeptBearbeitenBTN.visibility=View.GONE
+                }
             }
         }
 
@@ -49,25 +55,11 @@ class RezeptDetailFragment : Fragment() {
             navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToDataFragment())
         }
 
-        binding.rezeptBearbeitenBTN.setOnClickListener {
-            // Nehmen an, dass die id nicht null ist
-            val id = arguments?.getString("id") ?: ""
-            navigateToRezeptBearbeiten(id)
-        }
 
-        binding.rezeptLoeschenBTN.setOnClickListener{
+        binding.rezeptLoeschenBTN.setOnClickListener {
             Toast.makeText(requireContext(), "Keine Berechtigung", Toast.LENGTH_SHORT).show()
             // Zeige einen Toast an, wenn keine Berechtigung zum Löschen vorhanden ist
         }
     }
 
-    private fun navigateToRezeptBearbeiten(rezeptId: String) {
-        val action = RezeptDetailFragmentDirections.actionRezeptDetailFragmentToRezeptBearbeitenFragment(
-            id = rezeptId,
-            rezeptName = binding.RezeptNameTV.text.toString(),
-            rezeptZutaten = binding.RezeptZutatenTV.text.toString(),
-            rezeptZubereitung = binding.RezeptZubereitungTV.text.toString()
-        )
-        findNavController().navigate(action)
-    }
 }

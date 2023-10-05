@@ -1,14 +1,11 @@
 package com.example.einloggohnegoogle.repository
 
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.data.database.RezeptDataBase
-import com.example.einloggohnegoogle.data.database.RezeptDataBaseDao
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -115,10 +112,11 @@ class FirebaseRepository(
         zutaten: String,
         zubereitung: String,
         videoupload: String,
+        userId: String,
     ) {
         try {
             val rezeptId = UUID.randomUUID().toString()
-            val localRezeptId = savePostAndGetIdLocally(rezeptId, name, zutaten, zubereitung,videoupload)
+            val localRezeptId = savePostAndGetIdLocally(rezeptId, name, zutaten, zubereitung,videoupload,userId)
 
             // Daten für das Rezept
             val rezeptInfo = Rezept(
@@ -127,7 +125,8 @@ class FirebaseRepository(
                 name = name,
                 zubereitung = zubereitung,
                 zutaten = zutaten,
-                videoupload = videoupload
+                videoupload = videoupload,
+                userId = userId
             )
             Log.d(
                 "NeuesRezeptFragment",
@@ -152,6 +151,7 @@ class FirebaseRepository(
         zutaten: String,
         zubereitung: String,
         videoupload: String,
+        userId: String
 
 
         ){
@@ -160,7 +160,8 @@ class FirebaseRepository(
             name = name,
             zubereitung = zubereitung,
             zutaten = zutaten,
-            videoupload = videoupload
+            videoupload = videoupload,
+            userId = userId
         )
         return savePostAndGetId(localRezept)
     }
