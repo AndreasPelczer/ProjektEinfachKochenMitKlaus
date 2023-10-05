@@ -6,14 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import coil.transform.RoundedCornersTransformation
-import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.databinding.FragmentRezeptDetailBinding
+import java.lang.reflect.Array.getInt
 
 class RezeptDetailFragment : Fragment() {
 
@@ -35,17 +33,21 @@ class RezeptDetailFragment : Fragment() {
 
             val id = it.getString("id")
             viewModel.loadRezeptDetail(id)
-            Log.d("loadDetail", " to RezeptDetailFragment with ID: ${id}")
+            Log.d("loadDetail", " to RezeptDetailFragment with ID: $id")
 
-            viewModel.rezeptdetail.observe(viewLifecycleOwner) {
-                binding.RezeptNameTV.text = it.name
-                binding.RezeptZutatenTV.text = it.zutaten
-                binding.RezeptZubereitungTV.text = it.zubereitung
+            viewModel.rezeptdetail.observe(viewLifecycleOwner) {item->
+                binding.RezeptNameTV.text = item.name
+                Log.d("RezeptName", " to RezeptDetailFragment with ID: $id")
 
-                if (viewModel.getCurrentUserId()== it.userId){
-                    binding.rezeptBearbeitenBTN.visibility=View.VISIBLE
-                }else{
-                    binding.rezeptBearbeitenBTN.visibility=View.GONE
+                binding.RezeptZutatenTV.text = item.zutaten
+                Log.d("RezeptZutaten", " to RezeptDetailFragment with ID: $id")
+
+                binding.RezeptZubereitungTV.text = item.zubereitung
+                Log.d("RezeptZubereitung", " to RezeptDetailFragment with ID: $id")
+
+                binding.rezeptBearbeitenBTN.setOnClickListener {
+                    val navController = findNavController()
+                    navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToRezeptBearbeitenFragment(id!!))
                 }
             }
         }
@@ -60,6 +62,9 @@ class RezeptDetailFragment : Fragment() {
             Toast.makeText(requireContext(), "Keine Berechtigung", Toast.LENGTH_SHORT).show()
             // Zeige einen Toast an, wenn keine Berechtigung zum Löschen vorhanden ist
         }
+
+
     }
 
 }
+

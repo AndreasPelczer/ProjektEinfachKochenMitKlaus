@@ -89,7 +89,7 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=V2lX5N3NF2w",
             "https://www.youtube.com/watch?v=dGy5IPUZmt8",
             "https://www.youtube.com/watch?v=qZe2MS3TLK8",
-            ""
+
         )//Süßes
 
 

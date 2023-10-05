@@ -13,30 +13,113 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="302dp"
-        android:layout_height="628dp"
+        android:layout_width="303dp"
+        android:layout_height="719dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.633"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/info1TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/uberschriftinfotv"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/imageView8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/foto1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info1TV" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/_2ueberschriftinfotv"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <ScrollView
+                android:id="@+id/scrollView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher_foreground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
-                android:layout_height="1028dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
                 android:text="@string/long_text"
-                android:textAlignment="center" />
-        </LinearLayout>
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@+id/imageView8"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/black"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/mitteltext"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:layout_editor_absoluteX="115dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <Button
@@ -46,7 +129,7 @@
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="32dp"
         android:elevation="40dp"
-        android:text="Button"
+        android:text="@string/zur_ck"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

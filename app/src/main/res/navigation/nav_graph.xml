@@ -66,12 +66,12 @@
         <action
             android:id="@+id/action_rezeptDetailFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
-        <argument
-            android:name="id"
-            app:argType="string" />
         <action
             android:id="@+id/action_rezeptDetailFragment_to_rezeptBearbeitenFragment"
             app:destination="@id/rezeptBearbeitenFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/tipFragment"
@@ -106,19 +106,12 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_rezeptBearbeitenFragment_to_rezeptDetailFragment2"
+            app:destination="@id/rezeptDetailFragment" />
 
         <!-- Weitere Argumente, die du möglicherweise hast -->
-        <argument
-            android:name="rezeptName"
-            app:argType="string" />
 
-        <argument
-            android:name="rezeptZutaten"
-            app:argType="string" />
-
-        <argument
-            android:name="rezeptZubereitung"
-            app:argType="string" />
     </fragment>
 
 

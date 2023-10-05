@@ -21,7 +21,7 @@ class NeuesRezeptFragment : Fragment() {
 
     private lateinit var binding: FragmentNeuesRezeptBinding
     private val firestore = FirebaseFirestore.getInstance()
-    val viewModel: FirebaseViewmodel by viewModels()
+    private val viewModel: FirebaseViewmodel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +35,7 @@ class NeuesRezeptFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.RezeptSpeichernBTN.setOnClickListener {
-            val currentUser = viewModel.firebaseAuth.currentUser
-            if (currentUser != null) {
+
 
                 Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
                 val userId = viewModel.getCurrentUserId()
@@ -61,7 +60,7 @@ class NeuesRezeptFragment : Fragment() {
                     // Navigiere zurück zum DataFragment
                     findNavController().navigate(R.id.dataFragment)
                 }
-            }
+
         }
 
         binding.AbbruchBTN.setOnClickListener {
