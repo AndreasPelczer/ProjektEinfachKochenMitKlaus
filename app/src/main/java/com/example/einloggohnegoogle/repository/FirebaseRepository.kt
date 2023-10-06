@@ -154,7 +154,7 @@ class FirebaseRepository(
         userId: String
 
 
-        ){
+        ): Unit {
         val localRezept = Rezept(
             id = rezeptId,
             name = name,
@@ -163,11 +163,11 @@ class FirebaseRepository(
             videoupload = videoupload,
             userId = userId
         )
-        return savePostAndGetId(localRezept)
+        return saveRezeptAndGetId(localRezept)
     }
 
 
-    private suspend fun savePostAndGetId(localRezept: Rezept) {
+    private suspend fun saveRezeptAndGetId(localRezept: Rezept) {
         return withContext(Dispatchers.IO) {
             rezeptDataBase.dao.insertAndGetId(localRezept)
         }
