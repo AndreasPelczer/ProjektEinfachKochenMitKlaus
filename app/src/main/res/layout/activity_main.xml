@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/roleTV3"
-        android:layout_width="330dp"
-        android:layout_height="63dp"
+        android:layout_width="171dp"
+        android:layout_height="57dp"
         android:gravity="center"
         android:text="@string/ueberschrift"
         android:textColor="#000000"
