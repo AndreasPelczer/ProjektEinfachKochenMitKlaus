@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_dataFragment_to_tipFragment"
             app:destination="@id/tipFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
 
     </fragment>
 
@@ -112,6 +115,15 @@
 
         <!-- Weitere Argumente, die du möglicherweise hast -->
 
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.einloggohnegoogle.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
     </fragment>
 
 
