@@ -58,7 +58,8 @@ class NeuesRezeptFragment : Fragment() {
                     zubereitung = zubereitung,
                     videoupload = videoupload,
                     userId = userId.toString(),
-                    ersteller = ersteller.toString()
+                    ersteller = ersteller.toString(),
+
                 )
                 viewModel.insertRezeptData(rezeptData)
                 Log.e("rezept1", "Rezept in Firebasegespeichert")
