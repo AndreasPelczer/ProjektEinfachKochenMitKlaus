@@ -184,7 +184,10 @@ class FirebaseRepository(
         return rezeptDataBase.dao.getItemById(id)
     }
     private val database: DatabaseReference = FirebaseDatabase.getInstance().reference.child("rezepte")
-
+    fun updateRezeptDetailsInFirestore(rezeptId: String, updatedName: String, updatedZutaten: String, updatedZubereitung:String) {
+        val postRef = firestore.collection("Rezepte").document(rezeptId)
+        postRef.update("name", updatedName, "zutaten",updatedZutaten,"zubereitung",updatedZubereitung)
+    }
 
 
 

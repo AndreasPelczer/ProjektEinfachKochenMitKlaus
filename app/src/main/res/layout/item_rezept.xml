@@ -53,6 +53,31 @@
             app:layout_constraintTop_toBottomOf="@+id/zutatenTV"
             app:layout_constraintVertical_bias="0.0" />
 
+        <TextView
+            android:id="@+id/erstellerTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zubereitungTV" />
+
+        <TextView
+            android:id="@+id/noerstellerTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:gravity="left"
+            android:text="Unbekannt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zubereitungTV"
+            app:layout_constraintVertical_bias="0.506" />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"

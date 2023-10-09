@@ -7,15 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
-import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentRezeptBearbeitenBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class RezeptBearbeitenFragment : Fragment() {
 
@@ -42,7 +38,7 @@ class RezeptBearbeitenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.loadRezeptDetail(id)
         viewModel.rezeptdetail.observe(viewLifecycleOwner) { item ->
             binding.editRezeptNameTV.setText(item.name)
             binding.editRezeptZutatenTV.setText(item.zutaten)
@@ -58,25 +54,16 @@ class RezeptBearbeitenFragment : Fragment() {
         binding.RezeptSpeichernBTN.setOnClickListener {
             Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
 
-            // Benutzereingaben aus den EditText-Feldern abrufen
-            val name = binding.editRezeptNameTV.text.toString()
-            val zutaten = binding.editRezeptZutatenTV.text.toString()
-            val zubereitung = binding.editRezeptZubereitungTV.text.toString()
-
-            // Rezept in die Firebase-Datenbank speichern
-            viewModel.viewModelScope.launch(Dispatchers.Main) {
-                val rezeptData = Rezept(
-                    id = id.toString(),
-                    name = name,
-                    zutaten = zutaten,
-                    zubereitung = zubereitung,
-                )
-                viewModel.insertRezeptData(rezeptData)
-                Log.e("rezept gespeichert", "Rezept in Firebasegespeichert")
-
-                // Navigiere zurück zum DataFragment
-                findNavController().navigate(R.id.dataFragment)
+            val updatedName = binding.editRezeptNameTV.text.toString()
+            val updatedZutaten = binding.editRezeptZutatenTV.text.toString()
+            val updatedZubereitung = binding.editRezeptZubereitungTV.text.toString()
+                // beitrag aktualisieren.//
+            if (id != null) {
+                viewModel.updateRezeptDetail(id!!, updatedName, updatedZutaten, updatedZubereitung)
+                val navController = findNavController()
+                navController.navigate(RezeptBearbeitenFragmentDirections.actionRezeptBearbeitenFragmentToDataFragment())
             }
+
 
         }
 
