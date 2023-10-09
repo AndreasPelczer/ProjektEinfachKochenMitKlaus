@@ -5,17 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.data.datamodels.Profile
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentNeuesRezeptBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class NeuesRezeptFragment : Fragment() {
 
@@ -37,29 +41,31 @@ class NeuesRezeptFragment : Fragment() {
         binding.RezeptSpeichernBTN.setOnClickListener {
 
 
-                Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
-                val userId = viewModel.getCurrentUserId()
-                // Benutzereingaben aus den EditText-Feldern abrufen
-                val name = binding.nameET.text.toString()
-                val zutaten = binding.zutatenET.text.toString()
-                val zubereitung = binding.zubereitungET.text.toString()
-                val videoupload = binding.videoHinzuFGen.text.toString()
+            Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
+            val userId = viewModel.getCurrentUserId()
+            // Benutzereingaben aus den EditText-Feldern abrufen
+            val name = binding.nameET.text.toString()
+            val zutaten = binding.zutatenET.text.toString()
+            val zubereitung = binding.zubereitungET.text.toString()
+            val videoupload = binding.videoHinzuFGen.text.toString()
+            val ersteller = binding.erstellerET.text.toString()
 
-                // Rezept in die Firebase-Datenbank speichern
-                viewModel.viewModelScope.launch(Dispatchers.Main) {
-                    val rezeptData = Rezept(
-                        name = name,
-                        zutaten = zutaten,
-                        zubereitung = zubereitung,
-                        videoupload = videoupload,
-                        userId = userId.toString()
-                    )
-                    viewModel.insertRezeptData(rezeptData)
-                    Log.e("rezept gespeichert", "Rezept in Firebasegespeichert")
+            // Rezept in die Firebase-Datenbank speichern
+            viewModel.viewModelScope.launch(Dispatchers.Main) {
+                val rezeptData = Rezept(
+                    name = name,
+                    zutaten = zutaten,
+                    zubereitung = zubereitung,
+                    videoupload = videoupload,
+                    userId = userId.toString(),
+                    ersteller = ersteller.toString()
+                )
+                viewModel.insertRezeptData(rezeptData)
+                Log.e("rezept1", "Rezept in Firebasegespeichert")
 
-                    // Navigiere zurück zum DataFragment
-                    findNavController().navigate(R.id.dataFragment)
-                }
+                // Navigiere zurück zum DataFragment
+                findNavController().navigate(R.id.dataFragment)
+            }
 
         }
 
@@ -68,6 +74,6 @@ class NeuesRezeptFragment : Fragment() {
             findNavController().navigate(R.id.dataFragment)
         }
     }
-
-
 }
+
+

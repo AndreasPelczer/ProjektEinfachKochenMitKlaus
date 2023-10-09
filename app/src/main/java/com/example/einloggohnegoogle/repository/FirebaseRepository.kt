@@ -45,15 +45,19 @@ class FirebaseRepository(
             if (currentDocumentCount > lastKnownDocumentCount) {
                 for (document in querySnapshot.documents) {
                     val rezeptId = document.id
+                    val userId = document.getString("userId")?: ""
                     val name = document.getString("name") ?: ""
                     val zutaten = document.getString("zutaten") ?: ""
                     val zubereitung = document.getString("zubereitung") ?: ""
+                    val ersteller = document.getString("ersteller")?: ""
 
                     val rezept = Rezept(
                         id = rezeptId,
+                        userId=userId.toString(),
                         name = name,
                         zutaten = zutaten,
-                        zubereitung = zubereitung
+                        zubereitung = zubereitung,
+                        ersteller = ersteller
                     )
                     Log.e(TAG, "Fetched data: $rezept")
                     firestoreData.add(rezept)
@@ -113,10 +117,11 @@ class FirebaseRepository(
         zubereitung: String,
         videoupload: String,
         userId: String,
+        ersteller:String
     ) {
         try {
             val rezeptId = UUID.randomUUID().toString()
-            val localRezeptId = savePostAndGetIdLocally(rezeptId, name, zutaten, zubereitung,videoupload,userId)
+            val localRezeptId = savePostAndGetIdLocally(rezeptId, name, zutaten, zubereitung,videoupload,userId,ersteller)
 
             // Daten für das Rezept
             val rezeptInfo = Rezept(
@@ -126,7 +131,8 @@ class FirebaseRepository(
                 zubereitung = zubereitung,
                 zutaten = zutaten,
                 videoupload = videoupload,
-                userId = userId
+                userId = userId,
+                ersteller = ersteller
             )
             Log.d(
                 "NeuesRezeptFragment",
@@ -151,7 +157,8 @@ class FirebaseRepository(
         zutaten: String,
         zubereitung: String,
         videoupload: String,
-        userId: String
+        userId: String,
+        ersteller: String
 
 
         ){
@@ -161,7 +168,8 @@ class FirebaseRepository(
             zubereitung = zubereitung,
             zutaten = zutaten,
             videoupload = videoupload,
-            userId = userId
+            userId = userId,
+            ersteller = ersteller
         )
         return savePostAndGetId(localRezept)
     }
