@@ -126,7 +126,21 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
                 val detail = repository.getRezeptDetail(id!!)
                 rezeptdetail.postValue(detail)
             } catch (e: Exception) {
-                Log.e("PostsViewModel", "Error loading post detail: $e")
+                Log.e("RezeptViewModel", "Error loading post detail: $e")
+            }
+        }
+    }
+    fun updateRezeptDetail(
+        id: String,
+        updatedName: String,
+        updatedZutaten: String,
+        updatedZubereitung: String
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                repository.updateRezeptDetailsInFirestore(id, updatedName, updatedZutaten, updatedZubereitung)
+            } catch (e: Exception) {
+                Log.e("FirebaseViewModel", "Error updating rezept details: $e")
             }
         }
     }

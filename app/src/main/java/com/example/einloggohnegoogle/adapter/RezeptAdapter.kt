@@ -3,7 +3,9 @@ package com.example.einloggohnegoogle.adapter
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -43,7 +45,12 @@ class RezeptAdapter(
         holder.binding.rezeptNameTV.text = "Name: ${rezept.name}"
         holder.binding.zutatenTV.text = "Zutaten: ${rezept.zutaten}"
         holder.binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
-
+        holder.binding.erstellerTV.text="Ersteller: ${rezept.ersteller}"
+        if (rezept.ersteller.isEmpty()){
+            holder.binding.noerstellerTV.visibility = View.VISIBLE
+        }else{
+            holder.binding.noerstellerTV.visibility = View.GONE
+        }
         holder.binding.clickcardviewCV.setOnClickListener {
             Log.d("videoweg", "Navigating to RezeptDetailFragment with ID: ${rezept.id}")
             val action = DataFragmentDirections.actionDataFragmentToRezeptDetailFragment(dataset[position].id)
