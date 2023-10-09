@@ -53,7 +53,7 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
 
                 if (userId != null) {
                     Log.e("RezeptViewModel", "Error inserting data: ${itemData.name}")
-                    repository.saveRezeptToFirestore(itemData.name, itemData.zubereitung,itemData.zutaten,itemData.videoupload,itemData.userId)
+                    repository.saveRezeptToFirestore(itemData.name, itemData.zubereitung,itemData.zutaten,itemData.videoupload,itemData.userId,itemData.ersteller)
                 }
             } catch (e: Exception) {
                 Log.e("Rezept1ViewModel", "Error inserting data: $e")

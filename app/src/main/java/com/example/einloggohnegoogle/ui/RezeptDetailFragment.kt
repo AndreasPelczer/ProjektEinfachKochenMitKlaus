@@ -49,6 +49,8 @@ class RezeptDetailFragment : Fragment() {
                     val navController = findNavController()
                     navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToRezeptBearbeitenFragment(id!!))
                 }
+                binding.erstellerTV.text=item.ersteller
+
             }
         }
 
