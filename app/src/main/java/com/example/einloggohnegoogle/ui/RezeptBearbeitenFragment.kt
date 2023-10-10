@@ -54,6 +54,7 @@ class RezeptBearbeitenFragment : Fragment() {
         binding.RezeptSpeichernBTN.setOnClickListener {
             Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
 
+
             val updatedName = binding.editRezeptNameTV.text.toString()
             val updatedZutaten = binding.editRezeptZutatenTV.text.toString()
             val updatedZubereitung = binding.editRezeptZubereitungTV.text.toString()

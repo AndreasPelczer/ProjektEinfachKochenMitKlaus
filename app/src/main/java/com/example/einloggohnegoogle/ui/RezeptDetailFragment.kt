@@ -1,5 +1,6 @@
 package com.example.einloggohnegoogle.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -51,6 +52,14 @@ class RezeptDetailFragment : Fragment() {
                 }
                 binding.erstellerTV.text=item.ersteller
 
+                binding.btnShare.setOnClickListener {
+                    val shareIntent = Intent(Intent.ACTION_SEND)
+                    val shareText = "${item.name}\n${item.zutaten}\n${item.zubereitung}"
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareText)
+                    shareIntent.type = "text/plain"
+                    val shareIntentChooser = Intent.createChooser(shareIntent, null)
+                    startActivity(shareIntentChooser)
+                }
             }
         }
 
@@ -64,6 +73,7 @@ class RezeptDetailFragment : Fragment() {
             Toast.makeText(requireContext(), "Keine Berechtigung", Toast.LENGTH_SHORT).show()
             // Zeige einen Toast an, wenn keine Berechtigung zum Löschen vorhanden ist
         }
+
 
 
     }

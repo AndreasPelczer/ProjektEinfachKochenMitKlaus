@@ -13,5 +13,5 @@ data class Rezept(
     var zubereitung: String = "",
     var zutaten: String = "",
     var videoupload:String = "",
-    var ersteller:String=""
+    var ersteller:String="",
 )
