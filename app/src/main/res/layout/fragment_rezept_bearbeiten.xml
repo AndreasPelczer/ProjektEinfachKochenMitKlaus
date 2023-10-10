@@ -10,6 +10,15 @@
 
 
     <EditText
+        android:id="@+id/editRezeptErstellerTV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:hint="Zubereitung"
+        app:layout_constraintBottom_toTopOf="@+id/RezeptSpeichernBTN"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <EditText
         android:id="@+id/editRezeptNameTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -57,9 +57,18 @@ class RezeptBearbeitenFragment : Fragment() {
             val updatedName = binding.editRezeptNameTV.text.toString()
             val updatedZutaten = binding.editRezeptZutatenTV.text.toString()
             val updatedZubereitung = binding.editRezeptZubereitungTV.text.toString()
-                // beitrag aktualisieren.//
+            val updatedErsteller = binding.editRezeptErstellerTV2.text.toString()
+
+
+            // beitrag aktualisieren.//
             if (id != null) {
-                viewModel.updateRezeptDetail(id!!, updatedName, updatedZutaten, updatedZubereitung)
+                viewModel.updateRezeptDetail(
+                    id!!,
+                    updatedName,
+                    updatedZutaten,
+                    updatedZubereitung,
+                    updatedErsteller
+                )
                 val navController = findNavController()
                 navController.navigate(RezeptBearbeitenFragmentDirections.actionRezeptBearbeitenFragmentToDataFragment())
             }

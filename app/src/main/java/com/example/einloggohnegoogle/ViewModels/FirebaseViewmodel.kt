@@ -48,13 +48,14 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
     }
     fun insertRezeptData(itemData: Rezept) {
         viewModelScope.launch {
-            try {
-                val userId = getCurrentUserId()
 
-                if (userId != null) {
+            try {
+
+
+                Log.e("Firebase1", "Error inserting data: ${itemData.userId}")
                     Log.e("RezeptViewModel", "Error inserting data: ${itemData.name}")
                     repository.saveRezeptToFirestore(itemData.name, itemData.zubereitung,itemData.zutaten,itemData.videoupload,itemData.userId,itemData.ersteller)
-                }
+
             } catch (e: Exception) {
                 Log.e("Rezept1ViewModel", "Error inserting data: $e")
             }
@@ -134,11 +135,13 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         id: String,
         updatedName: String,
         updatedZutaten: String,
-        updatedZubereitung: String
+        updatedZubereitung: String,
+        updadtedersteller: String
+
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                repository.updateRezeptDetailsInFirestore(id, updatedName, updatedZutaten, updatedZubereitung)
+                repository.updateRezeptDetailsInFirestore(id, updatedName, updatedZutaten,updatedZubereitung,updadtedersteller)
             } catch (e: Exception) {
                 Log.e("FirebaseViewModel", "Error updating rezept details: $e")
             }

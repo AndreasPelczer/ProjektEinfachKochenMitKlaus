@@ -39,41 +39,48 @@ class NeuesRezeptFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.RezeptSpeichernBTN.setOnClickListener {
+            try {
 
+                Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
+                val userId = viewModel.getCurrentUserId()
+                // Benutzereingaben aus den EditText-Feldern abrufen
+                val name = binding.nameET.text.toString()
+                val zutaten = binding.zutatenET.text.toString()
+                val zubereitung = binding.zubereitungET.text.toString()
+                val videoupload = binding.videoHinzuFGen.text.toString()
+                val ersteller = binding.erstellerET.text.toString()
 
-            Log.e("Buttonrezepspeichern Button gespeichert", "Rezept gespeichert")
-            val userId = viewModel.getCurrentUserId()
-            // Benutzereingaben aus den EditText-Feldern abrufen
-            val name = binding.nameET.text.toString()
-            val zutaten = binding.zutatenET.text.toString()
-            val zubereitung = binding.zubereitungET.text.toString()
-            val videoupload = binding.videoHinzuFGen.text.toString()
-            val ersteller = binding.erstellerET.text.toString()
+                // Rezept in die Firebase-Datenbank speichern
+                viewModel.viewModelScope.launch(Dispatchers.Main) {
+                    val rezeptData = Rezept(
+                        name = name,
+                        zutaten = zutaten,
+                        zubereitung = zubereitung,
+                        videoupload = videoupload,
+                        userId = userId.toString(),
+                        ersteller = ersteller
+                    )
+                    viewModel.insertRezeptData(rezeptData)
+                    Log.e("rezept1", "Rezept in Firebasegespeichert")
 
-            // Rezept in die Firebase-Datenbank speichern
-            viewModel.viewModelScope.launch(Dispatchers.Main) {
-                val rezeptData = Rezept(
-                    name = name,
-                    zutaten = zutaten,
-                    zubereitung = zubereitung,
-                    videoupload = videoupload,
-                    userId = userId.toString(),
-                    ersteller = ersteller.toString()
-                )
-                viewModel.insertRezeptData(rezeptData)
-                Log.e("rezept1", "Rezept in Firebasegespeichert")
+                    // Navigiere zurück zum DataFragment
+                    findNavController().navigate(R.id.dataFragment)
+                }
 
+            } catch (e: Exception) {
+                Log.e("Error", "Fehler beim Speichern des Rezepts: ${e.message}", e)
+                Toast.makeText(
+                    requireContext(),
+                    "Fehler beim Speichern des Rezepts",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            binding.AbbruchBTN.setOnClickListener {
                 // Navigiere zurück zum DataFragment
                 findNavController().navigate(R.id.dataFragment)
             }
-
-        }
-
-        binding.AbbruchBTN.setOnClickListener {
-            // Navigiere zurück zum DataFragment
-            findNavController().navigate(R.id.dataFragment)
         }
     }
 }
-
 

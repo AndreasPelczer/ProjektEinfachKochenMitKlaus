@@ -1,19 +1,14 @@
 package com.example.einloggohnegoogle.ui
 
-import KlausFragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
@@ -125,15 +120,6 @@ class VideoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /* Finde den ImageView durch seine ID
-        val videoBackButton: ImageView = view.findViewById(R.id.VideoBackBTN)
-        // Füge dem ImageView eine Klickaktion hinzu
-        videoBackButton.setOnClickListener {
-            // Hier kannst du die Aktion ausführen, die passieren soll, wenn der Button geklickt wird
-            // Zum Beispiel den Nutzer zurücknavigieren
-            findNavController().navigate(R.id.dataFragment)
-           // activity?.onBackPressed()
-        }*/
         val videobackBTN: Button = view.findViewById(R.id.videobackBTN)
         // Füge dem ImageView eine Klickaktion hinzu
         videobackBTN.setOnClickListener {
@@ -152,10 +138,8 @@ class VideoFragment : Fragment() {
             findNavController().navigate(R.id.infoEinsFragment)
         }
         val vorspeisen: TextView = view.findViewById(R.id.VorspeiseTV)
-        // Füge der TextView eine Klickaktion hinzu
+
         vorspeisen.setOnClickListener {
-            // Hier kannst du die Aktion ausführen, die passieren soll, wenn die TextView geklickt wird
-            // Zum Beispiel den Nutzer zurücknavigieren
             findNavController().navigate(R.id.infoEinsFragment)
         }
         val suesses: TextView = view.findViewById(R.id.SuessspeiseTV)

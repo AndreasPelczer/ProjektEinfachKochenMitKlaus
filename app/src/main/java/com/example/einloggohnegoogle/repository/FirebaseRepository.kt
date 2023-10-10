@@ -121,7 +121,7 @@ class FirebaseRepository(
     ) {
         try {
             val rezeptId = UUID.randomUUID().toString()
-            val localRezeptId = savePostAndGetIdLocally(rezeptId, name, zutaten, zubereitung,videoupload,userId,ersteller)
+            val localRezeptId = saveRezeptAndGetIdLocally(rezeptId, name, zutaten, zubereitung,videoupload,userId,ersteller)
 
             // Daten für das Rezept
             val rezeptInfo = Rezept(
@@ -140,7 +140,7 @@ class FirebaseRepository(
             )
 
             // Firebase-Referenz zur Sammlung "Rezepte" und Dokument mit eindeutiger ID
-            firestore.collection("Rezepte").document(rezeptId).set(rezeptInfo)
+            firestore.collection("Rezepte").add(rezeptInfo)
             return localRezeptId
 
         } catch (e: Exception) {
@@ -151,7 +151,7 @@ class FirebaseRepository(
     }
 
 
-    private suspend fun savePostAndGetIdLocally(
+    private suspend fun saveRezeptAndGetIdLocally(
         rezeptId: String,
         name: String,
         zutaten: String,
@@ -171,11 +171,11 @@ class FirebaseRepository(
             userId = userId,
             ersteller = ersteller
         )
-        return savePostAndGetId(localRezept)
+        return saveRezeptAndGetId(localRezept)
     }
 
 
-    private suspend fun savePostAndGetId(localRezept: Rezept) {
+    private suspend fun saveRezeptAndGetId(localRezept: Rezept) {
         return withContext(Dispatchers.IO) {
             rezeptDataBase.dao.insertAndGetId(localRezept)
         }
@@ -184,11 +184,16 @@ class FirebaseRepository(
         return rezeptDataBase.dao.getItemById(id)
     }
     private val database: DatabaseReference = FirebaseDatabase.getInstance().reference.child("rezepte")
-    fun updateRezeptDetailsInFirestore(rezeptId: String, updatedName: String, updatedZutaten: String, updatedZubereitung:String) {
+    fun updateRezeptDetailsInFirestore(
+        rezeptId: String,
+        updatedName: String,
+        updatedZutaten: String,
+        updatedZubereitung: String,
+        userId: String,
+    ) {
         val postRef = firestore.collection("Rezepte").document(rezeptId)
         postRef.update("name", updatedName, "zutaten",updatedZutaten,"zubereitung",updatedZubereitung)
     }
-
 
 
 
