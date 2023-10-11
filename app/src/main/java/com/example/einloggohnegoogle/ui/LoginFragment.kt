@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -32,24 +33,38 @@ class LoginFragment : Fragment() {
         binding.signUpBTN.setOnClickListener {
             val email = binding.emailET.text.toString()
             val password = binding.passwordET.text.toString()
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Bitte E-Mail und Passwort eingeben",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                viewmodel.signUp(email, password)
+            }
 
-            viewmodel.signUp(email, password)
-        }
+            binding.signInBTN.setOnClickListener {
+                val email = binding.emailET.text.toString()
+                val password = binding.passwordET.text.toString()
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Bitte E-Mail und Passwort eingeben",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    viewmodel.signIn(email, password)
+                }
 
-        binding.signInBTN.setOnClickListener {
-            val email = binding.emailET.text.toString()
-            val password = binding.passwordET.text.toString()
+                //Wenn User eingeloggt ist, navigiere weiter
+                viewmodel.user.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        findNavController().navigate(R.id.dataFragment)
+                    }
+                }
 
-            viewmodel.signIn(email, password)
-        }
-
-        //Wenn User eingeloggt ist, navigiere weiter
-        viewmodel.user.observe(viewLifecycleOwner) {
-            if (it != null) {
-                findNavController().navigate(R.id.dataFragment)
             }
         }
-
     }
 }
 

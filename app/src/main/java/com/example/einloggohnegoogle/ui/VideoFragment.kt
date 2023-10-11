@@ -72,10 +72,7 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=AdvUcoaXm24&t=13s",
             "https://www.youtube.com/watch?v=eyfDl8gRwG0",
             "https://www.youtube.com/watch?v=UNMNZtTQA4o",
-            "https://www.youtube.com/watch?v=gx-GSXBjAPY"
-
-
-        )//Gerichte
+            "https://www.youtube.com/watch?v=gx-GSXBjAPY")//Gerichte
         val youtubeUrls3 = listOf(
             "https://www.youtube.com/watch?v=qZe2MS3TLK8&t=6s",
             "https://www.youtube.com/watch?v=A6WXl2Qd0PE&list=PLUmbHzQfets0JzlLGAEWy8XvbtO-JJxO3",
@@ -84,8 +81,16 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=V2lX5N3NF2w",
             "https://www.youtube.com/watch?v=dGy5IPUZmt8",
             "https://www.youtube.com/watch?v=qZe2MS3TLK8",
-
-        )//Süßes
+            )//Süßes
+        val youtubeUrls4 = listOf(
+            "https://www.youtube.com/watch?v=qZe2MS3TLK8&t=6s",
+            "https://www.youtube.com/watch?v=A6WXl2Qd0PE&list=PLUmbHzQfets0JzlLGAEWy8XvbtO-JJxO3",
+            "https://www.youtube.com/watch?v=3kk1I4DLCXg&t=10s",
+            "https://www.youtube.com/watch?v=xkkIqDULP4U",
+            "https://www.youtube.com/watch?v=V2lX5N3NF2w",
+            "https://www.youtube.com/watch?v=dGy5IPUZmt8",
+            "https://www.youtube.com/watch?v=qZe2MS3TLK8",
+            )
 
 
         // Extract video IDs
@@ -101,6 +106,10 @@ class VideoFragment : Fragment() {
             val videoId = extractVideoId(url)
             YouTubeVideo("Video ${index + 1}", videoId)
         }
+        val videos4 = youtubeUrls4.mapIndexed { index, url ->
+            val videoId = extractVideoId(url)
+            YouTubeVideo("Video ${index + 1}", videoId)
+        }
 
         val recyclerView1: RecyclerView = view.findViewById(R.id.recyclerView1)
      //   recyclerView1.layoutManager = LinearLayoutManager(requireContext())
@@ -113,6 +122,10 @@ class VideoFragment : Fragment() {
         val recyclerView3: RecyclerView = view.findViewById(R.id.recyclerView3)
       //  recyclerView3.layoutManager = LinearLayoutManager(requireContext())
         recyclerView3.adapter = YouTubeVideoAdapter(videos3)
+
+        val recyclerView4: RecyclerView = view.findViewById(R.id.recyclerView4)
+        //  recyclerView3.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView4.adapter = YouTubeVideoAdapter(videos4)
 
         return view
     }
