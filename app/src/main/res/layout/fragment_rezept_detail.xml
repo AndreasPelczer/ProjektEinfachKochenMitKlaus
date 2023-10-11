@@ -98,9 +98,9 @@
 
     <TextView
         android:id="@+id/erstellerTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_width="67dp"
+        android:layout_height="35dp"
+        android:text="@string/Ersteller"
         app:layout_constraintBottom_toTopOf="@+id/rezeptLoeschenBTN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"

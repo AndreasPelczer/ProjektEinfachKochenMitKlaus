@@ -43,6 +43,7 @@ class RezeptBearbeitenFragment : Fragment() {
             binding.editRezeptNameTV.setText(item.name)
             binding.editRezeptZutatenTV.setText(item.zutaten)
             binding.editRezeptZubereitungTV.setText(item.zutaten)
+            binding.editRezeptErstellerTV2.setText(item.ersteller)
         }
         // Informationen in die Eingabefelder
         binding.ZurueckRezeptBearbeitenBTN.setOnClickListener {
