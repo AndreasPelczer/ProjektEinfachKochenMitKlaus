@@ -10,6 +10,7 @@ import com.example.einloggohnegoogle.repository.FirebaseRepository
 import com.example.einloggohnegoogle.data.datamodels.Profile
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.data.database.getRezeptDatabase
+import com.example.einloggohnegoogle.data.datamodels.EigeneRezepteItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
@@ -17,6 +18,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 
 
 class FirebaseViewmodel(application: Application) : AndroidViewModel(application) {
@@ -42,16 +44,18 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
     lateinit var profileRef: DocumentReference
 
     private val database = FirebaseDatabase.getInstance()
+    private val eigeneRezepteList = mutableListOf<EigeneRezepteItem>()
 
+    fun insertEigeneRezept(rezept: Rezept) {
+
+        eigeneRezepteList.add(EigeneRezepteItem(name = String(), zutaten = String(), zubereitung = String(), videoupload = String(), ersteller = String()))
+    }
     fun getCurrentUserId(): String? {
         return repository.getCurrentUserId()
     }
     fun insertRezeptData(itemData: Rezept) {
         viewModelScope.launch {
-
             try {
-
-
                 Log.e("Firebase1", "Error inserting data: ${itemData.userId}")
                     Log.e("RezeptViewModel", "Error inserting data: ${itemData.name}")
                     repository.saveRezeptToFirestore(itemData.name, itemData.zubereitung,itemData.zutaten,itemData.videoupload,itemData.userId,itemData.ersteller)
@@ -148,9 +152,33 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun getOwnUserRezepte(userId: String): LiveData<List<Rezept>> {
+        val liveData = MutableLiveData<List<Rezept>>()
+        firestore.collection("Rezepte").whereEqualTo("userId", userId).get()
+            .addOnSuccessListener { documents ->
+                val rezepte = documents.map { document ->
+                    Rezept(
+                        id = document.getString("id") ?: "",
+                        name = document.getString("name") ?: "",
+                        zutaten = document.getString("zutaten").toString(),
+                        zubereitung = document.getString("zubereitung").toString(),
+                        videoupload = document.getString("videoupload").toString(),
+                        ersteller = document.getString("ersteller").toString()
+                    )
+                }
+                liveData.value = rezepte
+            }.addOnFailureListener {
+                // Handle failure if needed
+            }
+        return liveData
+    }
+
+
 
 
 }
+
+
 
 
 

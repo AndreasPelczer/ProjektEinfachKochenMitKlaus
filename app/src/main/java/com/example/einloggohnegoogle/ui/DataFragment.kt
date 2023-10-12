@@ -81,6 +81,7 @@ class DataFragment : Fragment() {
             setupRecyclerView(rezeptDataList)
         }
 
+
         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
         // Beobachte die LiveData "menuState" im ViewModel
         menuViewModel.menuState.observe(viewLifecycleOwner) { menuState: MenuState ->
@@ -124,10 +125,6 @@ class DataFragment : Fragment() {
             Log.d("neuesRezept", "weiterleitung")
             findNavController().navigate(R.id.action_dataFragment_to_NeuesRezeptFragment)
         }
-
-
-
-
 
         viewModel.user.observe(viewLifecycleOwner) {
             if (it == null) {

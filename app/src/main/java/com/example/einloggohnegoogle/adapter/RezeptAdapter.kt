@@ -41,15 +41,19 @@ class RezeptAdapter(
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val rezept = dataset[position]
         holder.binding.rezeptNameTV.text = "Name: ${rezept.name}"
         holder.binding.zutatenTV.text = "Zutaten: ${rezept.zutaten}"
         holder.binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
         holder.binding.erstellerTV.text="Ersteller: ${rezept.ersteller}"
+
         if (rezept.ersteller.isEmpty()){
             holder.binding.noerstellerTV.visibility = View.VISIBLE
+
         }else{
             holder.binding.noerstellerTV.visibility = View.GONE
+
         }
         holder.binding.clickcardviewCV.setOnClickListener {
             Log.d("videoweg", "Navigating to RezeptDetailFragment with ID: ${rezept.id}")

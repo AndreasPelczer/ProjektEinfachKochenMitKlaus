@@ -68,6 +68,7 @@ class RezeptDetailFragment : Fragment() {
                     val shareIntentChooser = Intent.createChooser(shareIntent, null)
                     startActivity(shareIntentChooser)
                 }
+
             }
         }
 

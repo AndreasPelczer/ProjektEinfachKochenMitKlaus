@@ -42,7 +42,7 @@ class RezeptBearbeitenFragment : Fragment() {
         viewModel.rezeptdetail.observe(viewLifecycleOwner) { item ->
             binding.editRezeptNameTV.setText(item.name)
             binding.editRezeptZutatenTV.setText(item.zutaten)
-            binding.editRezeptZubereitungTV.setText(item.zutaten)
+            binding.editRezeptZubereitungTV.setText(item.zubereitung)
             binding.editRezeptErstellerTV2.setText(item.ersteller)
         }
         // Informationen in die Eingabefelder

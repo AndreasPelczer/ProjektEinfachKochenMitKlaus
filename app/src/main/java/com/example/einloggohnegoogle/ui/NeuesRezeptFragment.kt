@@ -62,11 +62,12 @@ class NeuesRezeptFragment : Fragment() {
                         zubereitung = zubereitung,
                         videoupload = videoupload,
                         userId = userId.toString(),
-                        ersteller = ersteller
+                        ersteller = ersteller,
                     )
                     viewModel.insertRezeptData(rezeptData)
                     Log.e("rezept1", "Rezept in Firebasegespeichert")
-
+// Füge das Rezept zur "eigene Rezepte"-Liste hinzu
+                    viewModel.insertEigeneRezept(rezeptData)
                     // Navigiere zurück zum DataFragment
                     findNavController().navigate(R.id.dataFragment)
                 }
