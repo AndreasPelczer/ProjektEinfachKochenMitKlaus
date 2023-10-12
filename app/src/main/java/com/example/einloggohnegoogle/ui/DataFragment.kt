@@ -162,16 +162,17 @@ class DataFragment : Fragment() {
                 }
 
                 R.id.nav_item2_chat -> {
-                    //TODO: (feature: Chat, funktioniert. ausbau als Bonus.//
-                  /*  findNavController().navigate(
-                      HomeFragmentDirections.actionHomeFragmentToChatFragment("chat")
-                    )*/
+                    findNavController().navigate(
+                        DataFragmentDirections.actionDataFragmentToKlausFragment()
+                    )
                     closeMenu()
                     true
                 }
 
                 R.id.nav_item3_logout -> {
-                    viewModel.signOut()
+                    findNavController().navigate(
+                        DataFragmentDirections.actionDataFragmentToLoginFragment()
+                    )
                     closeMenu()
                     true
                 }

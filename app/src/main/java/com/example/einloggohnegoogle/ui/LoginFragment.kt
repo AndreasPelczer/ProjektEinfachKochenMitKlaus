@@ -2,6 +2,7 @@ package com.example.einloggohnegoogle.ui
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.databinding.FragmentLoginBinding
 
 
+@Suppress("NAME_SHADOWING")
 class LoginFragment : Fragment() {
 
     val viewmodel: FirebaseViewmodel by activityViewModels()
@@ -31,6 +33,8 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.signUpBTN.setOnClickListener {
+            Log.e("signup", "App signtup ")
+
             val email = binding.emailET.text.toString()
             val password = binding.passwordET.text.toString()
             if (email.isEmpty() || password.isEmpty()) {
@@ -42,8 +46,15 @@ class LoginFragment : Fragment() {
             } else {
                 viewmodel.signUp(email, password)
             }
+            binding.exitBTN.setOnClickListener {
+                Log.e("beenden", "App beendet")
+
+                activity?.finish()
+            }
 
             binding.signInBTN.setOnClickListener {
+                Log.e("eingelogt", "App logt ein")
+
                 val email = binding.emailET.text.toString()
                 val password = binding.passwordET.text.toString()
                 if (email.isEmpty() || password.isEmpty()) {
@@ -53,6 +64,8 @@ class LoginFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
+                    Log.e("eingelogt", "App logt ein")
+
                     viewmodel.signIn(email, password)
                 }
 

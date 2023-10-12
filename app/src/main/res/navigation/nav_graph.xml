@@ -35,6 +35,12 @@
         <action
             android:id="@+id/action_dataFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_dataFragment_to_klausFragment"
+            app:destination="@id/klausFragment" />
 
     </fragment>
 
@@ -89,7 +95,11 @@
         android:id="@+id/klausFragment"
         android:name="com.example.einloggohnegoogle.ui.KlausFragment"
         android:label="fragment_klaus"
-        tools:layout="@layout/fragment_klaus" />
+        tools:layout="@layout/fragment_klaus" >
+        <action
+            android:id="@+id/action_klausFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </fragment>
     <fragment
         android:id="@+id/infoEinsFragment"
         android:name="com.example.einloggohnegoogle.InfoEinsFragment"
