@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -31,6 +33,7 @@ class NeuesRezeptFragment : Fragment() {
         binding = FragmentNeuesRezeptBinding.inflate(inflater, container, false)
         return binding.root
     }
+    // Dropdown-Menuu für die Kategorien.//
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -77,9 +80,20 @@ class NeuesRezeptFragment : Fragment() {
                 ).show()
             }
 
-            binding.AbbruchBTN.setOnClickListener {
-                // Navigiere zurück zum DataFragment
-                findNavController().navigate(R.id.dataFragment)
+
+        }
+        binding.AbbruchBTN.setOnClickListener {
+            // Navigiere zurück zum DataFragment
+            findNavController().navigate(R.id.dataFragment)
+        }
+        val categories = listOf("Darstellende Kunst", "Musik", "Tanz", "Kochen", "Baukunst", "Architektur Kunst")
+
+        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_menu_popup_item, categories)
+        binding.categoryET.apply {
+            setAdapter(adapter)
+            onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                Log.d("DropdownLog", "Ausgewählte Kategorie: $selectedItem")
             }
         }
     }
@@ -87,6 +101,7 @@ class NeuesRezeptFragment : Fragment() {
         // Hier die Methode aufrufen, um die Benutzer-ID zu erhalten.//
         return viewModel.getCurrentUserId()
     }
+
 
 }
 
