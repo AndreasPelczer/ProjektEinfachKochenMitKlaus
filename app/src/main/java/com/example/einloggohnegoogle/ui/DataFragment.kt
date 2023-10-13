@@ -161,11 +161,10 @@ class DataFragment : Fragment() {
                     true
                 }
 
-                R.id.nav_item2_chat -> {
-                    //TODO: (feature: Chat, funktioniert. ausbau als Bonus.//
-                  /*  findNavController().navigate(
-                      HomeFragmentDirections.actionHomeFragmentToChatFragment("chat")
-                    )*/
+                R.id.nav_item2_eigenerezepte -> {
+                    findNavController().navigate(
+                      DataFragmentDirections.actionDataFragmentToKlausFragment()
+                    )
                     closeMenu()
                     true
                 }

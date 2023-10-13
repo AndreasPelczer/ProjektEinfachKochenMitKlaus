@@ -1,56 +1,59 @@
-import android.content.Context
+package com.example.einloggohnegoogle.ui
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.ui.DataFragment
+import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.adapter.RezeptListAdapter
+import com.example.einloggohnegoogle.databinding.FragmentKlausBinding
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class KlausFragment : Fragment() {
-    private var isFragmentAttached = false
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        isFragmentAttached = true
+    private lateinit var binding: FragmentKlausBinding
+    private val viewModel: FirebaseViewmodel by viewModels()
+    private val firestore = FirebaseFirestore.getInstance()
+    private val firestoreDocument =
+        FirebaseFirestore.getInstance().collection("Rezepte").document("Rezept")
+
+    override fun onResume() {
+        super.onResume()
+        // Hier rufst du die Methode auf, um Daten zu laden oder zu aktualisieren
+        viewModel.loadfromFireStore()
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        isFragmentAttached = false
-    }
-
-    fun showFragment() {
-        if (isFragmentAttached) {
-            // Zeige das Fragment an
-            val fragmentManager = requireActivity().supportFragmentManager
-            val transaction = fragmentManager.beginTransaction()
-            transaction.replace(R.id.fragmentContainerView, this)  // Hier verwenden wir "this" statt ein neues KlausFragment zu instantiieren
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-    }
-
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Hier wird das Layout für das Fragment aufgebläht (inflated)
-        return inflater.inflate(R.layout.fragment_klaus, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        // Inflate the layout for this fragment
+        binding = FragmentKlausBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Setze den Klicklistener auf das klausFragmentLayout
-        view.findViewById<View>(R.id.klausFragmentLayout)?.setOnClickListener {
-            // Wechsle zurück zum DataFragment
-            val dataFragment = DataFragment()
-            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.fragmentContainerView, dataFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+        binding.klausBackBTN.setOnClickListener {
+            findNavController().navigate(R.id.dataFragment)
         }
+        val rezepte = viewModel.getEigeneRezepte(userId = "")
+        val recyclerView: RecyclerView = view.findViewById(R.id.eigenerezepteRV)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = RezeptListAdapter(rezepte)  // Use RezeptListAdapter
+
+
+
+
     }
+
 
 }

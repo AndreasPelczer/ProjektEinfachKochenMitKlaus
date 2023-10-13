@@ -6,9 +6,9 @@
         android:icon="@drawable/baseline_settings_24"
         android:title="@string/einstellungen" />
     <item
-        android:id="@+id/nav_item2_chat"
-        android:icon="@drawable/baseline_chat_24"
-        android:title="@string/chat" />
+        android:id="@+id/nav_item2_eigenerezepte"
+        android:icon="@drawable/baseline_soup_kitchen_24"
+        android:title="@string/eigeneRezepte" />
     <item
         android:id="@+id/nav_item3_logout"
         android:icon="@drawable/baseline_logout_24"

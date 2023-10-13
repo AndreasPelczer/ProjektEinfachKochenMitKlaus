@@ -10,6 +10,7 @@ import com.example.einloggohnegoogle.repository.FirebaseRepository
 import com.example.einloggohnegoogle.data.datamodels.Profile
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.data.database.getRezeptDatabase
+import com.example.einloggohnegoogle.data.datamodels.EigeneRezepteItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
@@ -43,6 +44,12 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
 
     private val database = FirebaseDatabase.getInstance()
 
+    private val eigeneRezepteList: MutableList<Rezept> = mutableListOf<Rezept>()
+
+    fun insertEigeneRezept(rezept: Rezept) {
+
+        eigeneRezepteList.add(Rezept(name = String(), zutaten = String(), zubereitung = String(), videoupload = String(), ersteller = String()))
+    }
     fun getCurrentUserId(): String? {
         return repository.getCurrentUserId()
     }
@@ -143,6 +150,28 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
                 Log.e("FirebaseViewModel", "Error updating rezept details: $e")
             }
         }
+    }
+    fun getEigeneRezepte(userId: String): LiveData<List<Rezept>> {
+        val liveData = MutableLiveData<List<Rezept>>()
+        firestore.collection("Rezepte").whereEqualTo("userId", userId).get()
+            .addOnSuccessListener { documents ->
+                val rezepte = documents.map { document ->
+                    Rezept(
+                        id = document.getString("id") ?: "",
+                        name = document.getString("name") ?: "",
+                        zutaten = document.getString("zutaten").toString(),
+                        zubereitung = document.getString("zubereitung").toString(),
+                        videoupload = document.getString("videoupload").toString(),
+                        ersteller = document.getString("ersteller").toString()
+                    )
+                }
+                liveData.value = rezepte
+            }.addOnFailureListener {
+                // Handle failure if needed
+            }
+        return liveData
+    }
+    fun insertEigeneRezept() {
     }
 
 

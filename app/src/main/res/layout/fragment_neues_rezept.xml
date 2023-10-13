@@ -8,6 +8,31 @@
     tools:context=".ui.NeuesRezeptFragment">
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/kategorie"
+        app:layout_constraintBottom_toTopOf="@+id/RezeptSpeichernBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841"
+        tools:ignore="MissingConstraints,UnknownId">
+
+        <AutoCompleteTextView
+            android:id="@+id/categoryET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:dropDownHeight="200dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <EditText
         android:id="@+id/videoHinzuFügen"
         android:layout_width="135dp"
@@ -28,18 +53,19 @@
         android:id="@+id/RezeptSpeichernBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/speichern"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/AbbruchBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/abbruch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -118,4 +144,5 @@
         android:layout_marginTop="116dp"
         app:layout_constraintEnd_toStartOf="@+id/videoHinzuFügen"
         app:layout_constraintTop_toTopOf="@+id/zubereitungET" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
