@@ -47,8 +47,8 @@ class NeuesRezeptFragment : Fragment() {
                 val name = binding.nameET.text.toString()
                 val zutaten = binding.zutatenET.text.toString()
                 val zubereitung = binding.zubereitungET.text.toString()
-                val videoupload = binding.videoHinzuFGen.text.toString()
-                val ersteller = binding.erstellerET.text.toString()
+                //val videoupload = binding.videoHinzuFGen.text.toString()
+                //val ersteller = binding.erstellerET.text.toString()
 
                 // Rezept in die Firebase-Datenbank speichern
                 viewModel.viewModelScope.launch(Dispatchers.Main) {
@@ -60,9 +60,9 @@ class NeuesRezeptFragment : Fragment() {
                         name = name,
                         zutaten = zutaten,
                         zubereitung = zubereitung,
-                        videoupload = videoupload,
+                      //  videoupload = videoupload,
                         userId = userId.toString(),
-                        ersteller = ersteller,
+                     //   ersteller = ersteller,
                     )
                     viewModel.insertRezeptData(rezeptData)
                     Log.e("rezept1", "Rezept in Firebasegespeichert")

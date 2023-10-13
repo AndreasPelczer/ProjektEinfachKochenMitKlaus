@@ -83,13 +83,11 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=qZe2MS3TLK8",
             )//Süßes
         val youtubeUrls4 = listOf(
-            "https://www.youtube.com/watch?v=qZe2MS3TLK8&t=6s",
-            "https://www.youtube.com/watch?v=A6WXl2Qd0PE&list=PLUmbHzQfets0JzlLGAEWy8XvbtO-JJxO3",
-            "https://www.youtube.com/watch?v=3kk1I4DLCXg&t=10s",
-            "https://www.youtube.com/watch?v=xkkIqDULP4U",
-            "https://www.youtube.com/watch?v=V2lX5N3NF2w",
-            "https://www.youtube.com/watch?v=dGy5IPUZmt8",
-            "https://www.youtube.com/watch?v=qZe2MS3TLK8",
+           " https://youtu.be/zQfd_bpXsQg?si=ckW9fIrS-4eBjbP7",
+            "https://youtu.be/MQN3W9aTXKM?si=IqQa05j6acf1jRLU  ",
+            "https://youtu.be/NcU80Rehds0?si=NQiVOfnBKXGnCffX ",
+            "https://youtu.be/sLiSFA6K40k?si=K62mGz5MUy7QvL6k",
+
             )
 
 
