@@ -41,7 +41,9 @@ Integriert YouTube-Video-Playlists, damit Benutzer verwandte Kochvideos anzeigen
 
 Info API-Integration: 
 Implementiert eine Info API, um zusätzliche Informationen abzurufen.
-Navigation: Nutzt das Navigationskomponente, um zwischen verschiedenen Fragmenten in der Anwendung zu navigieren.
+Navigation:
+
+Nutzt das Navigationskomponente, um zwischen verschiedenen Fragmenten in der Anwendung zu navigieren.
 
 Verwendung:
 
