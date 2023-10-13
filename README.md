@@ -31,11 +31,16 @@ Implementiert das MVVM-Muster zur Trennung von Benutzeroberfläche und Geschäft
 
 Schlüsselfunktionalitäten:
 Firebase-Integration: 
-
 Die Anwendung verwendet Firebase zur Speicherung und zum Abrufen von Rezeptdaten.
-RecyclerView: Verwendet RecyclerView zur Anzeige einer Liste von Rezepten in verschiedenen Fragmenten.
-YouTube-Integration: Integriert YouTube-Video-Playlists, damit Benutzer verwandte Kochvideos anzeigen können.
-Info API-Integration: Implementiert eine Info API, um zusätzliche Informationen zu Rezepten abzurufen.
+
+RecyclerView: 
+Verwendet RecyclerView zur Anzeige einer Liste von Rezepten in verschiedenen Fragmenten.
+
+YouTube-Integration: 
+Integriert YouTube-Video-Playlists, damit Benutzer verwandte Kochvideos anzeigen können.
+
+Info API-Integration: 
+Implementiert eine Info API, um zusätzliche Informationen abzurufen.
 Navigation: Nutzt das Navigationskomponente, um zwischen verschiedenen Fragmenten in der Anwendung zu navigieren.
 
 Verwendung:
