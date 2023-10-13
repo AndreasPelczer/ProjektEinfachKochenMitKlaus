@@ -1,5 +1,6 @@
 package com.example.einloggohnegoogle.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.databinding.FragmentRezeptDetailBinding
-import java.lang.reflect.Array.getInt
 
 class RezeptDetailFragment : Fragment() {
 
@@ -35,7 +35,7 @@ class RezeptDetailFragment : Fragment() {
             viewModel.loadRezeptDetail(id)
             Log.d("loadDetail", " to RezeptDetailFragment with ID: $id")
 
-            viewModel.rezeptdetail.observe(viewLifecycleOwner) {item->
+            viewModel.rezeptdetail.observe(viewLifecycleOwner) { item ->
                 binding.RezeptNameTV.text = item.name
                 Log.d("RezeptName", " to RezeptDetailFragment with ID: $id")
 
@@ -44,11 +44,31 @@ class RezeptDetailFragment : Fragment() {
 
                 binding.RezeptZubereitungTV.text = item.zubereitung
                 Log.d("RezeptZubereitung", " to RezeptDetailFragment with ID: $id")
+                if (viewModel.getCurrentUserId() == item.userId) {
+                    binding.rezeptBearbeitenBTN.visibility = View.VISIBLE
 
+                } else {
+                    binding.rezeptBearbeitenBTN.visibility = View.GONE
+                }
                 binding.rezeptBearbeitenBTN.setOnClickListener {
                     val navController = findNavController()
-                    navController.navigate(RezeptDetailFragmentDirections.actionRezeptDetailFragmentToRezeptBearbeitenFragment(id!!))
+                    navController.navigate(
+                        RezeptDetailFragmentDirections.actionRezeptDetailFragmentToRezeptBearbeitenFragment(
+                            id!!
+                        )
+                    )
                 }
+                binding.erstellerTV.text = item.ersteller
+
+                binding.btnShare.setOnClickListener {
+                    val shareIntent = Intent(Intent.ACTION_SEND)
+                    val shareText = "${item.name}\n${item.zutaten}\n${item.zubereitung}"
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareText)
+                    shareIntent.type = "text/plain"
+                    val shareIntentChooser = Intent.createChooser(shareIntent, null)
+                    startActivity(shareIntentChooser)
+                }
+
             }
         }
 

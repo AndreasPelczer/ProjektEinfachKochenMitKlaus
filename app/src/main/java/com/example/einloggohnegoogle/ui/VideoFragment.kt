@@ -1,19 +1,14 @@
 package com.example.einloggohnegoogle.ui
 
-import KlausFragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
@@ -77,10 +72,7 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=AdvUcoaXm24&t=13s",
             "https://www.youtube.com/watch?v=eyfDl8gRwG0",
             "https://www.youtube.com/watch?v=UNMNZtTQA4o",
-            "https://www.youtube.com/watch?v=gx-GSXBjAPY"
-
-
-        )//Gerichte
+            "https://www.youtube.com/watch?v=gx-GSXBjAPY")//Gerichte
         val youtubeUrls3 = listOf(
             "https://www.youtube.com/watch?v=qZe2MS3TLK8&t=6s",
             "https://www.youtube.com/watch?v=A6WXl2Qd0PE&list=PLUmbHzQfets0JzlLGAEWy8XvbtO-JJxO3",
@@ -89,8 +81,14 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=V2lX5N3NF2w",
             "https://www.youtube.com/watch?v=dGy5IPUZmt8",
             "https://www.youtube.com/watch?v=qZe2MS3TLK8",
+            )//Süßes
+        val youtubeUrls4 = listOf(
+           " https://youtu.be/zQfd_bpXsQg?si=ckW9fIrS-4eBjbP7",
+            "https://youtu.be/MQN3W9aTXKM?si=IqQa05j6acf1jRLU  ",
+            "https://youtu.be/NcU80Rehds0?si=NQiVOfnBKXGnCffX ",
+            "https://youtu.be/sLiSFA6K40k?si=K62mGz5MUy7QvL6k",
 
-        )//Süßes
+            )
 
 
         // Extract video IDs
@@ -103,6 +101,10 @@ class VideoFragment : Fragment() {
             YouTubeVideo("Video ${index + 1}", videoId)
         }
         val videos3 = youtubeUrls3.mapIndexed { index, url ->
+            val videoId = extractVideoId(url)
+            YouTubeVideo("Video ${index + 1}", videoId)
+        }
+        val videos4 = youtubeUrls4.mapIndexed { index, url ->
             val videoId = extractVideoId(url)
             YouTubeVideo("Video ${index + 1}", videoId)
         }
@@ -119,21 +121,16 @@ class VideoFragment : Fragment() {
       //  recyclerView3.layoutManager = LinearLayoutManager(requireContext())
         recyclerView3.adapter = YouTubeVideoAdapter(videos3)
 
+        val recyclerView4: RecyclerView = view.findViewById(R.id.recyclerView4)
+        //  recyclerView3.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView4.adapter = YouTubeVideoAdapter(videos4)
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /* Finde den ImageView durch seine ID
-        val videoBackButton: ImageView = view.findViewById(R.id.VideoBackBTN)
-        // Füge dem ImageView eine Klickaktion hinzu
-        videoBackButton.setOnClickListener {
-            // Hier kannst du die Aktion ausführen, die passieren soll, wenn der Button geklickt wird
-            // Zum Beispiel den Nutzer zurücknavigieren
-            findNavController().navigate(R.id.dataFragment)
-           // activity?.onBackPressed()
-        }*/
         val videobackBTN: Button = view.findViewById(R.id.videobackBTN)
         // Füge dem ImageView eine Klickaktion hinzu
         videobackBTN.setOnClickListener {
@@ -152,10 +149,8 @@ class VideoFragment : Fragment() {
             findNavController().navigate(R.id.infoEinsFragment)
         }
         val vorspeisen: TextView = view.findViewById(R.id.VorspeiseTV)
-        // Füge der TextView eine Klickaktion hinzu
+
         vorspeisen.setOnClickListener {
-            // Hier kannst du die Aktion ausführen, die passieren soll, wenn die TextView geklickt wird
-            // Zum Beispiel den Nutzer zurücknavigieren
             findNavController().navigate(R.id.infoEinsFragment)
         }
         val suesses: TextView = view.findViewById(R.id.SuessspeiseTV)

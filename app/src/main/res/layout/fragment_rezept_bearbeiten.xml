@@ -8,13 +8,26 @@
     app:navGraph="@navigation/nav_graph"
     tools:context=".ui.RezeptBearbeitenFragment" >
 
+
+    <EditText
+        android:id="@+id/editRezeptErstellerTV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:hint="@string/Ersteller"
+        app:layout_constraintBottom_toTopOf="@+id/RezeptSpeichernBTN"
+        tools:layout_editor_absoluteX="1dp" />
+
     <EditText
         android:id="@+id/editRezeptNameTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:hint="Rezeptname"
-        app:layout_constraintBottom_toTopOf="@+id/editRezeptZutatenTV" />
+        app:layout_constraintBottom_toTopOf="@+id/editRezeptZutatenTV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/editRezeptZutatenTV"
@@ -22,16 +35,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:hint="Zutaten"
-        app:layout_constraintBottom_toTopOf="@+id/editRezeptZubereitungTV" />
+        app:layout_constraintBottom_toTopOf="@+id/editRezeptZubereitungTV"
+        tools:layout_editor_absoluteX="1dp" />
 
     <EditText
         android:id="@+id/editRezeptZubereitungTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="156dp"
         android:hint="Zubereitung"
-        app:layout_constraintBottom_toTopOf="@+id/RezeptSpeichernBTN" />
-
+        app:layout_constraintBottom_toTopOf="@+id/RezeptSpeichernBTN"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/RezeptSpeichernBTN"
@@ -52,4 +66,21 @@
         android:text="Zurück"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="58dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Notiz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editRezeptZubereitungTV"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

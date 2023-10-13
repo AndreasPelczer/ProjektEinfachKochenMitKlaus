@@ -81,6 +81,7 @@ class DataFragment : Fragment() {
             setupRecyclerView(rezeptDataList)
         }
 
+
         menuViewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
         // Beobachte die LiveData "menuState" im ViewModel
         menuViewModel.menuState.observe(viewLifecycleOwner) { menuState: MenuState ->
@@ -125,10 +126,6 @@ class DataFragment : Fragment() {
             findNavController().navigate(R.id.action_dataFragment_to_NeuesRezeptFragment)
         }
 
-
-
-
-
         viewModel.user.observe(viewLifecycleOwner) {
             if (it == null) {
             }
@@ -154,24 +151,25 @@ class DataFragment : Fragment() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_item1_settings -> {
-                  /*  findNavController().navigate(
-                        DataFragmentDirections.actionHomeFragmentToFactsFragment()
-                    )*/
+                    findNavController().navigate(
+                        DataFragmentDirections.actionDataFragmentToSettingsFragment()
+                    )
                     closeMenu()
                     true
                 }
 
-                R.id.nav_item2_chat -> {
-                    //TODO: (feature: Chat, funktioniert. ausbau als Bonus.//
-                  /*  findNavController().navigate(
-                      HomeFragmentDirections.actionHomeFragmentToChatFragment("chat")
-                    )*/
+                R.id.nav_item2_eigenerezepte -> {
+                    findNavController().navigate(
+                        DataFragmentDirections.actionDataFragmentToKlausFragment()
+                    )
                     closeMenu()
                     true
                 }
 
                 R.id.nav_item3_logout -> {
-                    viewModel.signOut()
+                    findNavController().navigate(
+                        DataFragmentDirections.actionDataFragmentToLoginFragment()
+                    )
                     closeMenu()
                     true
                 }
