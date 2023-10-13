@@ -152,7 +152,7 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun getOwnUserRezepte(userId: String): LiveData<List<Rezept>> {
+    fun getEigeneRezepte(userId: String): LiveData<List<Rezept>> {
         val liveData = MutableLiveData<List<Rezept>>()
         firestore.collection("Rezepte").whereEqualTo("userId", userId).get()
             .addOnSuccessListener { documents ->
@@ -173,7 +173,8 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         return liveData
     }
 
-
+    fun insertEigeneRezept() {
+        eigeneRezepteList.add(EigeneRezepteItem(name = String(), zutaten = String(), zubereitung = String(), videoupload = String(), ersteller = String()))    }
 
 
 }

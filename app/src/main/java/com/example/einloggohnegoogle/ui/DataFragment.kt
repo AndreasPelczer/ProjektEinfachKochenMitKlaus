@@ -158,7 +158,7 @@ class DataFragment : Fragment() {
                     true
                 }
 
-                R.id.nav_item2_chat -> {
+                R.id.nav_item2_eigenerezepte -> {
                     findNavController().navigate(
                         DataFragmentDirections.actionDataFragmentToKlausFragment()
                     )

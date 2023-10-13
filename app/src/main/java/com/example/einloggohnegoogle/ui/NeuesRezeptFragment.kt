@@ -87,7 +87,7 @@ class NeuesRezeptFragment : Fragment() {
             // Navigiere zurück zum DataFragment
             findNavController().navigate(R.id.dataFragment)
         }
-        val categories = listOf("Darstellende Kunst", "Musik", "Tanz", "Kochen", "Baukunst", "Architektur Kunst")
+        val categories = listOf("Suppen", "Vorspeisen", "kleine Gerichte", "Gerichte", "Nachspeisen/Kuchen", "Küchentechnik")
 
         val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_menu_popup_item, categories)
         binding.categoryET.apply {

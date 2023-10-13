@@ -45,7 +45,7 @@ class KlausFragment : Fragment() {
         binding.klausBackBTN.setOnClickListener {
             findNavController().navigate(R.id.dataFragment)
         }
-        val rezepte = viewModel.getOwnUserRezepte(userId = "")
+        val rezepte = viewModel.getEigeneRezepte(userId = "")
         val recyclerView: RecyclerView = view.findViewById(R.id.eigenerezepteRV)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = RezeptListAdapter(rezepte)  // Use RezeptListAdapter
