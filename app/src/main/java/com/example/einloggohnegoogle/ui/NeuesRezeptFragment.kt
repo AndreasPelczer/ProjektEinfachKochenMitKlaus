@@ -22,7 +22,6 @@ import kotlinx.coroutines.launch
 
 class NeuesRezeptFragment : Fragment() {
 
-
     private lateinit var binding: FragmentNeuesRezeptBinding
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val viewModel: FirebaseViewmodel by viewModels()
@@ -106,7 +105,4 @@ class NeuesRezeptFragment : Fragment() {
 
 
 }
-
-
-
 

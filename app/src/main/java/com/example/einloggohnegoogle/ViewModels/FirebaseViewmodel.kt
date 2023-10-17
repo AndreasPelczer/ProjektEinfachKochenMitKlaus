@@ -40,7 +40,7 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
     val rezeptdetail: MutableLiveData<Rezept>
         get() = _rezeptdetail
 
-    lateinit var profileRef: DocumentReference
+    private lateinit var profileRef: DocumentReference
 
     private val database = FirebaseDatabase.getInstance()
 
