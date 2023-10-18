@@ -99,6 +99,9 @@
         <action
             android:id="@+id/action_klausFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
+        <action
+            android:id="@+id/action_klausFragment_to_rezeptDetailFragment"
+            app:destination="@id/rezeptDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoEinsFragment"

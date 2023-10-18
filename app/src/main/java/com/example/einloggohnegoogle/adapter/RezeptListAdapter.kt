@@ -1,41 +1,46 @@
 package com.example.einloggohnegoogle.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.LiveData
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.data.datamodels.Rezept
+import com.example.einloggohnegoogle.databinding.ItemRezeptBinding
+import com.example.einloggohnegoogle.ui.DataFragmentDirections
+import com.example.einloggohnegoogle.ui.KlausFragmentDirections
 
 
-class RezeptListAdapter(private val rezepte: LiveData<List<Rezept>>) : RecyclerView.Adapter<RezeptListAdapter.ViewHolder>() {
+class RezeptListAdapter(private val rezepte: List<Rezept>, private val itemClickListener: (Rezept) -> Unit) : RecyclerView.Adapter<RezeptListAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewName: TextView = itemView.findViewById(R.id.cardViewCV)
-        // Weitere Views hier...
-
-        // Methode zum Binden der Daten an die Views
-        fun bind(item: Rezept) {
-            textViewName.text = item.name
-            // Weitere Views binden...
-        }
-    }
+    inner class ViewHolder(val binding: ItemRezeptBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rezept, parent, false)
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        rezepte.value?.let { recipes ->
-            holder.bind(recipes[position])
-        }
+        val binding = ItemRezeptBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return rezepte.value?.size ?:0
+        return rezepte.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val rezept = rezepte[position]
+        holder.binding.rezeptNameTV.text = "Name: ${rezept.name}"
+        holder.binding.zutatenTV.text = "Zutaten: ${rezept.zutaten}"
+        holder.binding.zubereitungTV.text = "Zubereitung: ${rezept.zubereitung}"
+        holder.binding.erstellerTV.text="Ersteller: ${rezept.ersteller}"
+
+
+        holder.binding.clickcardviewCV.setOnClickListener {
+            Log.d("videoweg", "Navigating to RezeptDetailFragment with ID: ${rezept.id}")
+            val action = KlausFragmentDirections.actionKlausFragmentToRezeptDetailFragment(rezepte[position].id)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 }
 

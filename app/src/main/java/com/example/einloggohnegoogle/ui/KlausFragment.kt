@@ -14,6 +14,7 @@ import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.viewModels.menuViewModel.MenuViewModel
 import com.example.einloggohnegoogle.adapter.RezeptAdapter
+import com.example.einloggohnegoogle.adapter.RezeptListAdapter
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentKlausBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -49,19 +50,16 @@ class KlausFragment : Fragment() {
 
 
     private fun setupRecyclerView(rezeptDataList: List<Rezept>) {
-        // Annahme: Du hast eine Methode im FirebaseViewModel, die den aktuellen Benutzer zurückgibt
         val currentUser = viewModel.getCurrentUserId()
+        val eigeneRezepte = rezeptDataList.filter { it.userId == currentUser }
+        val rezeptAdapter = RezeptListAdapter(eigeneRezepte) { selectedRezept ->
+            val action = KlausFragmentDirections.actionKlausFragmentToRezeptDetailFragment(
+                selectedRezept.toString()
+            )
+            findNavController().navigate(action)
+        }
 
-        // Filtere die Rezepte, die nur vom aktuellen Benutzer erstellt wurden
-        val eigeneRezepte = rezeptDataList.filter { it.userId == currentUser}
-
-        // Initialisiere den Adapter mit den gefilterten Rezepten
-        val rezeptAdapter = RezeptAdapter(viewModel, eigeneRezepte, findNavController())
-
-        // Verbinde den Adapter mit dem RecyclerView
         binding.eigenerezepteRV.adapter = rezeptAdapter
-
-        // Setze das Layout-Manager für den RecyclerView
         binding.eigenerezepteRV.layoutManager = LinearLayoutManager(requireContext())
     }
 
@@ -73,8 +71,6 @@ class KlausFragment : Fragment() {
 
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
             Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
-
-            // Hier wird die RecyclerView aktualisiert
             setupRecyclerView(rezeptDataList)
         }
         binding.klausBackBTN.setOnClickListener {
