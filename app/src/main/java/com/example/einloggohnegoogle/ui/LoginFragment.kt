@@ -9,16 +9,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.databinding.FragmentLoginBinding
 
 
 @Suppress("NAME_SHADOWING")
 class LoginFragment : Fragment() {
 
-    val viewmodel: FirebaseViewmodel by activityViewModels()
+    private val viewModel: FirebaseViewmodel by viewModels()
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -32,11 +33,12 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.signUpBTN.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             Log.e("signup", "App signtup ")
+            val loginViewModel: FirebaseViewmodel by viewModels()
 
-            val email = binding.emailET.text.toString()
-            val password = binding.passwordET.text.toString()
+            val email = binding.etEmailRegister.text.toString()
+            val password = binding.etPasswordRegister.text.toString()
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(
                     requireContext(),
@@ -44,19 +46,14 @@ class LoginFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                viewmodel.signUp(email, password)
-            }
-            binding.exitBTN.setOnClickListener {
-                Log.e("beenden", "App beendet")
-
-                activity?.finish()
+                loginViewModel.signIn(email, password)
             }
 
-            binding.signInBTN.setOnClickListener {
+            binding.btnRegister.setOnClickListener {
                 Log.e("eingelogt", "App logt ein")
 
-                val email = binding.emailET.text.toString()
-                val password = binding.passwordET.text.toString()
+                val email = binding.etEmailLogin.text.toString()
+                val password = binding.etPasswordLogin.text.toString()
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(
                         requireContext(),
@@ -66,12 +63,16 @@ class LoginFragment : Fragment() {
                 } else {
                     Log.e("eingelogt", "App logt ein")
 
-                    viewmodel.signIn(email, password)
+                    loginViewModel.signUp(email, password)
                 }
 
                 //Wenn User eingeloggt ist, navigiere weiter
-                viewmodel.user.observe(viewLifecycleOwner) {
-                    if (it != null) {
+                viewModel.user.observe(viewLifecycleOwner) {
+                    if (it == null) { // not logged in
+                        binding.tvLoggedIn.text = "You are not logged in"
+                    } else
+                        if (it != null) {
+                        binding.tvLoggedIn.text = "You are logged in!"
                         findNavController().navigate(R.id.dataFragment)
                     }
                 }
@@ -79,5 +80,12 @@ class LoginFragment : Fragment() {
             }
         }
     }
+
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+
 }
 

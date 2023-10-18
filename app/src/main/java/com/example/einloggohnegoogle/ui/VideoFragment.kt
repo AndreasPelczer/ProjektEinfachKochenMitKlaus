@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.adapter.YouTubeVideoAdapter
 import com.example.einloggohnegoogle.data.YouTubeVideo
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding

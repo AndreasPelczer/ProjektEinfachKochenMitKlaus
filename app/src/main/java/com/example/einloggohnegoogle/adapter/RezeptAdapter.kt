@@ -5,14 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.ItemRezeptBinding
-import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.ui.DataFragmentDirections
 import com.google.firebase.firestore.FirebaseFirestore
 

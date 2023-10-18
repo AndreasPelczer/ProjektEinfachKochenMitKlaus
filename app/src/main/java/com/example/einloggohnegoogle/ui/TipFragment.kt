@@ -14,8 +14,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.ViewModels.TipViewModel
-import com.example.einloggohnegoogle.ViewModels.TipViewModelFactory
+import com.example.einloggohnegoogle.viewModels.TipViewModel
+import com.example.einloggohnegoogle.viewModels.TipViewModelFactory
 import com.example.einloggohnegoogle.databinding.FragmentTipBinding
 
 class TipFragment : Fragment() {

@@ -8,16 +8,13 @@ import android.view.ViewGroup
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
-import com.example.einloggohnegoogle.ViewModels.MenuViewModel.MenuViewModel
+import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.viewModels.menuViewModel.MenuViewModel
 import com.example.einloggohnegoogle.adapter.RezeptAdapter
-import com.example.einloggohnegoogle.data.datamodels.MenuState
 import com.example.einloggohnegoogle.data.datamodels.Rezept
-import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.example.einloggohnegoogle.databinding.FragmentKlausBinding
 import com.google.firebase.firestore.FirebaseFirestore
 

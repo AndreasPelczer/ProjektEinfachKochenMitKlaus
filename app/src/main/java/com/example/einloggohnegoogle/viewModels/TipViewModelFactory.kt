@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.ViewModels
+package com.example.einloggohnegoogle.viewModels
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

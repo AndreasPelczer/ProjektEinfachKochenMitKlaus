@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.ViewModels.MenuViewModel
+package com.example.einloggohnegoogle.viewModels.menuViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

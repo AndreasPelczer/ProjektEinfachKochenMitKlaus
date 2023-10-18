@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.ViewModels
+package com.example.einloggohnegoogle.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -8,7 +8,6 @@ import com.example.catfactsfriday.data.datamodels.FactsItem
 import com.example.catfactsfriday.data.remote.ItemApi
 import com.example.einloggohnegoogle.repository.AppRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class TipViewModel(application: Application, val size: Int) : AndroidViewModel(application) {

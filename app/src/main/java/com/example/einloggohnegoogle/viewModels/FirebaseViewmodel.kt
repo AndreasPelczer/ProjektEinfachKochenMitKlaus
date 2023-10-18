@@ -1,4 +1,4 @@
-package com.example.einloggohnegoogle.ViewModels
+package com.example.einloggohnegoogle.viewModels
 
 import android.app.Application
 import android.util.Log
@@ -53,6 +53,10 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
     fun getCurrentUserId(): String? {
         return repository.getCurrentUserId()
     }
+
+
+
+
     fun insertRezeptData(itemData: Rezept) {
         viewModelScope.launch {
             try {

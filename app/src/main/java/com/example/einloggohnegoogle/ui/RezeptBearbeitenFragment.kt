@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.ViewModels.FirebaseViewmodel
+import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.databinding.FragmentRezeptBearbeitenBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
