@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         )
         // Weitere Vorspeisen hinzufügen...
 
-        /*Beispiel Rezepte für Hauptgänge
+        //Beispiel Rezepte für Hauptgänge
         val hauptgaenge = listOf<Rezept>(
             Rezept(
                 name = "Spaghetti Carbonara",
@@ -77,7 +77,9 @@ class MainActivity : AppCompatActivity() {
                 name = "Vegetarische Pizza",
                 zutaten = "Pizza-Teig, Tomatensoße, Käse, Paprika, Zwiebeln, Oliven, Pilze",
                 zubereitung = "Teig ausrollen, mit Tomatensoße bestreichen, Gemüse und Käse darauf verteilen, backen bis knusprig."
-            )
+            ),
+            Rezept(name = "Spaghetti Bolognese", zutaten = "400 g Spaghetti, 500 g Rinderhackfleisch, 1 Zwiebel, 2 Knoblauchzehen, 400 g Dosentomaten, 2 EL Tomatenmark, 1 TL getrockneter Oregano, Salz, Pfeffer, Parmesan (optional)",
+                zubereitung = "1. Die Spaghetti gemäß den Anweisungen auf der Verpackung kochen, bis sie al dente sind. Anschließend abtropfen lassen und beiseite stellen. 2.In einer Pfanne bei mittlerer Hitze das Rinderhackfleisch braten, bis es eine schöne braune Farbe annimmt und krümelig wird . 3.Die gewürfelte Zwiebel und den gehackten Knoblauch hinzufügen und weiter braten, bis sie weich und leicht glasig sind.4.Das Tomatenmark in die Pfanne geben und kurz anrösten.Dann die Dosentomaten hinzufügen und alles gut vermengen . Mit Oregano, Salz und Pfeffer würzen . 5.Die Bolognese -Sauce bei niedriger Hitze etwa 15 - 20 Minuten köcheln lassen, dabei gelegentlich umrühren, bis sie schön eingedickt ist.6.Die abgetropften Spaghetti auf Teller verteilen und großzügig mit der Bolognese - Sauce bedecken . Nach Belieben mit frisch geriebenem Parmesan servieren . ")
         )
 
         // Weitere Hauptgänge hinzufügen...
@@ -119,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Fehler beim Speichern des Rezepts in Firestore", e)
                 }
-        }*/
+        }
 
     }
 }
