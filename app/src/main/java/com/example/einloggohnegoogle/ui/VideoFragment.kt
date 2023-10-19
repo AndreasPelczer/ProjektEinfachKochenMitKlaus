@@ -89,25 +89,62 @@ class VideoFragment : Fragment() {
             "https://youtu.be/sLiSFA6K40k?si=K62mGz5MUy7QvL6k",
 
             )
+        val videoTitles1 = listOf(
+            "Video 1 Title",
+            "Video 2 Title",
+            "Video 3 Title",
+            // Füge hier die restlichen Überschriften für die erste Liste hinzu
+        )
+
+        val videoTitles2 = listOf(
+            "Video 1 Title",
+            "Video 2 Title",
+            "Video 3 Title",
+            // Füge hier die restlichen Überschriften für die zweite Liste hinzu
+        )
+
+        val videoTitles3 = listOf(
+            "Schoko-Apfel Kuchen",
+            "Schwarzwälder",
+            "Apfelmichel",
+            "Kirschdessert",
+            "Apfel im Schlafrock",
+            "Palatschinken",
+            "Schokokuchen"
+            // Füge hier die restlichen Überschriften für die dritte Liste hinzu
+        )
+
+        val videoTitles4 = listOf(
+            "Video 1 aaa",
+            "Video 2 Title",
+            "Video 3 Title",
+            // Füge hier die restlichen Überschriften für die vierte Liste hinzu
+        )
+
 
 
         // Extract video IDs
         val videos = youtubeUrls1.mapIndexed { index, url ->
             val videoId = extractVideoId(url)
-            YouTubeVideo("Video ${index + 1}", videoId)
+            val videoTitle = videoTitles1.getOrNull(index) ?: "Default Title"
+            YouTubeVideo(videoTitle, videoId)
         }
         val videos2 = youtubeUrls2.mapIndexed { index, url ->
             val videoId = extractVideoId(url)
-            YouTubeVideo("Video ${index + 1}", videoId)
+            val videoTitle = videoTitles2.getOrNull(index) ?: "Default Title"
+            YouTubeVideo(videoTitle, videoId)
         }
         val videos3 = youtubeUrls3.mapIndexed { index, url ->
             val videoId = extractVideoId(url)
-            YouTubeVideo("Video ${index + 1}", videoId)
+            val videoTitle = videoTitles3.getOrNull(index) ?: "Default Title"
+            YouTubeVideo(videoTitle, videoId)
         }
         val videos4 = youtubeUrls4.mapIndexed { index, url ->
             val videoId = extractVideoId(url)
-            YouTubeVideo("Video ${index + 1}", videoId)
+            val videoTitle = videoTitles4.getOrNull(index) ?: "Default Title"
+            YouTubeVideo(videoTitle, videoId)
         }
+
 
         val recyclerView1: RecyclerView = view.findViewById(R.id.recyclerView1)
      //   recyclerView1.layoutManager = LinearLayoutManager(requireContext())

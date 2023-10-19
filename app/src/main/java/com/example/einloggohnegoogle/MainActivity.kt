@@ -29,57 +29,55 @@ class MainActivity : AppCompatActivity() {
         //Beispiel Rezepte für Hauptgänge
         val hauptgaenge = listOf<Rezept>(
             Rezept(
-                name = "Spaghetti Carbonara",
-                zutaten = "Spaghetti, Speck, Eier, Parmesan, Knoblauch, Salz, Pfeffer",
-                zubereitung = "Speck knusprig braten, Spaghetti kochen. Eier, Parmesan, Knoblauch vermischen und über die Spaghetti geben. Mit Speck, Salz und Pfeffer garnieren."
+                name = "Lammschmorbraten",
+                zutaten = "1,5 kg Lammkeule,\n2 Zwiebeln,\n4 Knoblauchzehen,\n2 Karotten,\n2 Selleriestangen,\n2 EL Olivenöl,\n500 ml Rotwein,\n500 ml Fleischbrühe,\n2 Lorbeerblätter,\n2 Zweige Rosmarin,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Den Backofen auf 160°C vorheizen.\n2. Die Lammkeule salzen und pfeffern.\n3. In einem großen Bräter das Olivenöl erhitzen und die Lammkeule von allen Seiten anbraten, bis sie eine schöne braune Farbe hat. Dann aus dem Bräter nehmen und beiseite stellen.\n4. Die Zwiebeln, den Knoblauch, die Karotten und den Sellerie im Bräter anbraten, bis sie weich sind.\n5. Den Rotwein hinzufügen und aufkochen lassen. Die Fleischbrühe, Lorbeerblätter und Rosmarin hinzufügen.\n6. Die Lammkeule zurück in den Bräter legen und alles abdecken.\n7. Den Bräter in den vorgeheizten Ofen stellen und den Lammschmorbraten ca. 2,5 Stunden schmoren lassen, bis das Fleisch zart ist. Gelegentlich mit der Soße übergießen.\n8. Vor dem Servieren die Lorbeerblätter und Rosmarinzweige entfernen. Den Lammschmorbraten in Scheiben schneiden und mit der Soße servieren."
             ),
             Rezept(
-                name = "Gegrilltes Hühnchen mit Gemüse",
-                zutaten = "Hühnchenbrust, Paprika, Zucchini, Olivenöl, Gewürze",
-                zubereitung = "Hühnchen und Gemüse marinieren, grillen und servieren."
+                name = "Lachsalat und Lachspaste",
+                zutaten = "200 g geräucherter Lachs,\n100 g Frischkäse,\n1 EL Zitronensaft,\n2 EL gehackter Dill,\nSalz und Pfeffer nach Geschmack,\nGemischter grüner Salat nach Wahl",
+                zubereitung = "1. Den geräucherten Lachs in kleine Stücke schneiden.\n2. In einer Schüssel den Frischkäse, Zitronensaft und gehackten Dill vermengen. Mit Salz und Pfeffer abschmecken.\n3. Die Lachspaste auf Baguette- oder Vollkornbrot streichen.\n4. Den grünen Salat waschen und auf Teller verteilen.\n5. Die geräucherten Lachsstücke auf dem Salat anrichten und die Lachspaste dazu servieren."
             ),
             Rezept(
-                name = "Pasta Carbonara",
-                zutaten = "Spaghetti, Eier, Speck, Parmesan, Knoblauch, Sahne",
-                zubereitung = "Nudeln kochen, Speck anbraten, mit Eiern und Käse vermengen."
+                name = "Muscheln in Weißweinsud",
+                zutaten = "1 kg Miesmuscheln,\n2 Schalotten,\n2 Knoblauchzehen,\n1 Bund Petersilie,\n200 ml trockener Weißwein,\n100 ml Gemüsebrühe,\n2 EL Butter,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die Miesmuscheln gründlich unter kaltem Wasser abspülen und geöffnete Muscheln aussortieren.\n2. Die Schalotten und Knoblauchzehen fein hacken und die Petersilie grob schneiden.\n3. In einem großen Topf die Butter erhitzen und die gehackten Schalotten und Knoblauch darin anschwitzen.\n4. Den Weißwein hinzufügen und aufkochen lassen. Dann die Gemüsebrühe und die Hälfte der Petersilie hinzufügen.\n5. Die Muscheln in den Topf geben und den Deckel schließen. Die Muscheln bei mittlerer Hitze etwa 5-7 Minuten kochen, bis sie sich geöffnet haben. Geschlossene Muscheln aussortieren.\n6. Die Muscheln in tiefe Teller geben, mit der Weißweinsauce übergießen und mit der restlichen Petersilie bestreuen. Mit frischem Brot servieren."
             ),
             Rezept(
-                name = "Linsensuppe",
-                zutaten = "Linsen, Gemüsebrühe, Karotten, Zwiebeln, Knoblauch",
-                zubereitung = "Linsen mit Gemüse kochen, mit Gewürzen abschmecken."
+                name = "Reisfleisch",
+                zutaten = "250 g Rinderhackfleisch,\n1 Zwiebel,\n1 Knoblauchzehe,\n1 Tasse Reis,\n1 EL Tomatenmark,\n1 TL Paprikapulver,\n500 ml Rinderbrühe,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die Zwiebel und den Knoblauch fein hacken.\n2. In einem großen Topf das Rinderhackfleisch anbraten, bis es braun und krümelig ist.\n3. Die gehackte Zwiebel und den Knoblauch hinzufügen und weiter braten, bis sie weich sind.\n4. Das Tomatenmark und das Paprikapulver unterrühren.\n5. Den Reis hinzufügen und alles gut vermengen.\n6. Die Rinderbrühe hinzugießen und mit Salz und Pfeffer würzen.\n7. Den Topf abdecken und das Reisfleisch bei niedriger Hitze etwa 20-25 Minuten köcheln lassen, bis der Reis gar ist und die Flüssigkeit aufgesogen wurde. Gelegentlich umrühren.\n8. Vor dem Servieren das Reisfleisch kurz ruhen lassen und dann servieren."
             ),
             Rezept(
-                name = "Gefüllte Paprika",
-                zutaten = "Paprika, Hackfleisch, Reis, Tomatensoße, Käse",
-                zubereitung = "Paprika aushöhlen, mit Hackfleisch und Reis füllen, backen und mit Käse überbacken."
+                name = "Entenbraten mit Rotkraut",
+                zutaten = "1 Ente (ca. 2,5 kg),\n1 kg Rotkraut,\n4 Äpfel,\n4 EL Zucker,\n4 EL Rotweinessig,\n2 EL Butterschmalz,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Den Backofen auf 180°C vorheizen.\n2. Die Ente waschen und trocken tupfen. Mit Salz und Pfeffer von innen und außen würzen.\n3. Die Äpfel schälen, entkernen und in Stücke schneiden.\n4. In einem Bräter das Butterschmalz erhitzen und die Ente von allen Seiten anbraten, bis sie eine goldbraune Farbe hat.\n5. Die Äpfel um die Ente legen und mit Zucker bestreuen. Den Rotweinessig darüber gießen.\n6. Den Bräter abdecken und die Ente im vorgeheizten Ofen etwa 2 Stunden braten. Gelegentlich mit dem Bratensaft übergießen.\n7. Das Rotkraut putzen und fein schneiden.\n8. In einem Topf das Rotkraut mit etwas Wasser, Salz und Zucker kochen, bis es weich ist.\n9. Die Ente aus dem Ofen nehmen und in Stücke schneiden. Mit dem Rotkraut und den Äpfeln servieren."
             ),
             Rezept(
-                name = "Hähnchen-Curry",
-                zutaten = "Hähnchenbrust, Kokosmilch, Currypaste, Gemüse, Reis",
-                zubereitung = "Hähnchen anbraten, Gemüse hinzufügen, mit Kokosmilch und Currypaste kochen, servieren mit Reis."
+                name = "Entenbrust mit Wirsingemüse",
+                zutaten = "2 Entenbrüste,\n500 g Wirsing,\n2 Schalotten,\n2 Knoblauchzehen,\n200 ml Geflügelbrühe,\n100 ml Sahne,\n2 EL Butterschmalz,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die Haut der Entenbrüste rautenförmig einschneiden und mit Salz würzen.\n2. Die Entenbrüste mit der Hautseite nach unten in einer Pfanne ohne Fett bei mittlerer Hitze anbraten, bis die Haut knusprig ist. Dann umdrehen und kurz von der anderen Seite anbraten. Aus der Pfanne nehmen und beiseite stellen.\n3. Die Schalotten und Knoblauchzehen fein hacken.\n4. Den Wirsing in Streifen schneiden.\n5. In der gleichen Pfanne das Butterschmalz erhitzen und die gehackten Schalotten und Knoblauch darin anschwitzen.\n6. Den geschnittenen Wirsing hinzufügen und kurz anbraten.\n7. Die Geflügelbrühe und Sahne hinzufügen und alles köcheln lassen, bis der Wirsing weich ist und die Sauce eingedickt ist. Mit Salz und Pfeffer abschmecken.\n8. Die Entenbrüste in die Pfanne legen und kurz erwärmen.\n9. Die Entenbrust in Scheiben schneiden und mit dem Wirsing servieren."
             ),
             Rezept(
-                name = "Lasagne",
-                zutaten = "Lasagneblätter, Hackfleisch, Tomatensoße, Bechamelsauce, Käse",
-                zubereitung = "Lasagneblätter schichten mit Hackfleisch, Tomatensoße, Bechamelsauce und Käse, backen bis goldbraun."
+                name = "Nudelauflauf",
+                zutaten = "300 g Nudeln,\n400 g gemischtes Hackfleisch,\n1 Zwiebel,\n2 Knoblauchzehen,\n400 ml passierte Tomaten,\n200 g geriebener Gouda-Käse,\n2 EL Olivenöl,\n1 TL getrockneter Oregano,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die Nudeln nach Packungsanweisung kochen, bis sie al dente sind. Anschließend abtropfen lassen und beiseite stellen.\n2. In einer Pfanne das Olivenöl erhitzen und die gewürfelte Zwiebel und gehackten Knoblauch darin anschwitzen.\n3. Das gemischte Hackfleisch hinzufügen und anbraten, bis es braun und krümelig ist.\n4. Die passierten Tomaten unterrühren und mit Oregano, Salz und Pfeffer würzen.\n5. Den Backofen auf 180°C vorheizen.\n6. Die Nudeln in eine große Auflaufform geben und die Hackfleisch-Tomatensauce darüber verteilen.\n7. Den geriebenen Gouda-Käse darüber streuen.\n8. Den Nudelauflauf im vorgeheizten Ofen etwa 20-25 Minuten backen, bis der Käse goldbraun ist. Servieren."
             ),
             Rezept(
-                name = "Rindersteak mit Kartoffelstampf",
-                zutaten = "Rindersteak, Kartoffeln, Butter, Milch, Salz, Pfeffer",
-                zubereitung = "Rindersteak braten, Kartoffeln kochen, stampfen, mit Butter und Milch vermengen, servieren."
+                name = "Schoko-Apfel Kuchen",
+                zutaten = "3 Äpfel,\n200 g Zartbitterschokolade,\n200 g Butter,\n200 g Zucker,\n4 Eier,\n200 g Mehl,\n1 TL Backpulver,\n1 Päckchen Vanillezucker",
+                zubereitung = "1. Die Zartbitterschokolade grob hacken und mit der Butter in einem Topf schmelzen. Vom Herd nehmen und abkühlen lassen.\n2. Den Backofen auf 180°C vorheizen.\n3. Die Äpfel schälen, entkernen und in Stücke schneiden.\n4. Die Eier mit dem Zucker und Vanillezucker schaumig schlagen.\n5. Die geschmolzene Schokoladen-Butter-Mischung unter die Ei-Zucker-Masse rühren.\n6. Das Mehl mit dem Backpulver vermengen und vorsichtig unter die Schokoladenmasse heben.\n7. Die Apfelstücke ebenfalls unterheben.\n8. Den Teig in eine gefettete Backform geben.\n9. Den Schoko-Apfel Kuchen im vorgeheizten Ofen ca. 30-35 Minuten backen, bis er fest ist. Stäbchenprobe machen.\n10. Aus dem Ofen nehmen und abkühlen lassen. Vor dem Servieren in Stücke schneiden."
             ),
             Rezept(
-                name = "Gemüse-Couscous",
-                zutaten = "Couscous, Gemüsebrühe, Paprika, Zucchini, Kichererbsen",
-                zubereitung = "Couscous mit Gemüsebrühe übergießen, Gemüse anbraten, vermengen und servieren."
+                name = "Forelle Müllerin",
+                zutaten = "4 Forellen,\n80 g Mehl,\n4 EL Butter,\nSaft einer Zitrone,\nSalz und Pfeffer nach Geschmack,\nPetersilie zum Garnieren",
+                zubereitung = "1. Die Forellen gründlich waschen, trocken tupfen und mit Mehl bestäuben. Überschüssiges Mehl abklopfen.\n2. In einer Pfanne die Butter erhitzen und die Forellen von beiden Seiten goldbraun braten. Die Hitze sollte nicht zu hoch sein, damit die Forellen nicht zu dunkel werden.\n3. Die Forellen aus der Pfanne nehmen und auf einem Teller warmhalten.\n4. In der Pfanne den Zitronensaft erhitzen und mit Salz und Pfeffer würzen.\n5. Die Zitronenbutter über die Forellen gießen und mit gehackter Petersilie garnieren. Servieren."
             ),
             Rezept(
-                name = "Vegetarische Pizza",
-                zutaten = "Pizza-Teig, Tomatensoße, Käse, Paprika, Zwiebeln, Oliven, Pilze",
-                zubereitung = "Teig ausrollen, mit Tomatensoße bestreichen, Gemüse und Käse darauf verteilen, backen bis knusprig."
-            ),
-            Rezept(name = "Spaghetti Bolognese", zutaten = "400 g Spaghetti, 500 g Rinderhackfleisch, 1 Zwiebel, 2 Knoblauchzehen, 400 g Dosentomaten, 2 EL Tomatenmark, 1 TL getrockneter Oregano, Salz, Pfeffer, Parmesan (optional)",
-                zubereitung = "1. Die Spaghetti gemäß den Anweisungen auf der Verpackung kochen, bis sie al dente sind. Anschließend abtropfen lassen und beiseite stellen. 2.In einer Pfanne bei mittlerer Hitze das Rinderhackfleisch braten, bis es eine schöne braune Farbe annimmt und krümelig wird . 3.Die gewürfelte Zwiebel und den gehackten Knoblauch hinzufügen und weiter braten, bis sie weich und leicht glasig sind.4.Das Tomatenmark in die Pfanne geben und kurz anrösten.Dann die Dosentomaten hinzufügen und alles gut vermengen . Mit Oregano, Salz und Pfeffer würzen . 5.Die Bolognese -Sauce bei niedriger Hitze etwa 15 - 20 Minuten köcheln lassen, dabei gelegentlich umrühren, bis sie schön eingedickt ist.6.Die abgetropften Spaghetti auf Teller verteilen und großzügig mit der Bolognese - Sauce bedecken . Nach Belieben mit frisch geriebenem Parmesan servieren . ")
+                name = "Shrimps-Salat",
+                zutaten = "200 g Shrimps,\n1 Eisbergsalat,\n1 Tomate,\n1 Gurke,\n1 Zwiebel,\n4 EL Olivenöl,\nSaft einer Zitrone,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die Shrimps gründlich abspülen und abtropfen lassen.\n2. Den Eisbergsalat, die Tomate, die Gurke und die Zwiebel waschen und in kleine Stücke schneiden.\n3. In einer Schüssel Olivenöl und Zitronensaft vermengen und mit Salz und Pfeffer würzen.\n4. Die Shrimps und das geschnittene Gemüse in die Schüssel geben und vorsichtig vermengen.\n5. Den Shrimps-Salat vor dem Servieren etwa 30 Minuten im Kühlschrank ziehen lassen. Gut gekühlt servieren."
+            )
         )
 
         // Weitere Hauptgänge hinzufügen...
