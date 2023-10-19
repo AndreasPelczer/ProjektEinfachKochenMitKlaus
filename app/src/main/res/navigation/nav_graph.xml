@@ -28,7 +28,11 @@
             app:destination="@id/videoFragment" />
         <action
             android:id="@+id/action_dataFragment_to_rezeptDetailFragment"
-            app:destination="@id/rezeptDetailFragment" />
+            app:destination="@id/rezeptDetailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out" />
         <action
             android:id="@+id/action_dataFragment_to_tipFragment"
             app:destination="@id/tipFragment" />
