@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        /* Beispiel Rezepte für Vorspeisen
+        // Beispiel Rezepte für Vorspeisen
         val vorspeisen = mutableListOf<Rezept>()
         vorspeisen.add(
             Rezept(
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         )
         // Weitere Vorspeisen hinzufügen...
 
-        // Beispiel Rezepte für Hauptgänge
+        /*Beispiel Rezepte für Hauptgänge
         val hauptgaenge = listOf<Rezept>(
             Rezept(
                 name = "Spaghetti Carbonara",
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Fehler beim Speichern des Rezepts in Firestore", e)
                 }
-        }
+        }*/
 
-    }*/
-}}
+    }
+}
