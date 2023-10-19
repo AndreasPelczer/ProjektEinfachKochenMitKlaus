@@ -25,7 +25,11 @@
             app:destination="@id/neuesRezeptFragment" />
         <action
             android:id="@+id/action_dataFragment_to_VideoFragment"
-            app:destination="@id/videoFragment" />
+            app:destination="@id/videoFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
         <action
             android:id="@+id/action_dataFragment_to_rezeptDetailFragment"
             app:destination="@id/rezeptDetailFragment"
@@ -35,16 +39,32 @@
             app:popExitAnim="@anim/slide_out" />
         <action
             android:id="@+id/action_dataFragment_to_tipFragment"
-            app:destination="@id/tipFragment" />
+            app:destination="@id/tipFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
         <action
             android:id="@+id/action_dataFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
         <action
             android:id="@+id/action_dataFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
         <action
             android:id="@+id/action_dataFragment_to_klausFragment"
-            app:destination="@id/klausFragment" />
+            app:destination="@id/klausFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
 
     </fragment>
 
@@ -55,8 +75,13 @@
         tools:layout="@layout/fragment_neues_rezept">
         <action
             android:id="@+id/action_neuesRezept_to_dataFragment"
-            app:destination="@id/dataFragment" />
+            app:destination="@id/dataFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
     </fragment>
+
     <fragment
         android:id="@+id/videoFragment"
         android:name="com.example.einloggohnegoogle.ui.VideoFragment"
@@ -64,10 +89,20 @@
         tools:layout="@layout/fragment_video">
         <action
             android:id="@+id/action_videoFragment_to_dataFragment"
-            app:destination="@id/dataFragment" />
+            app:destination="@id/dataFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            />
         <action
             android:id="@+id/action_videoFragment_to_infoEinsFragment"
-            app:destination="@id/infoEinsFragment" />
+            app:destination="@id/infoEinsFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"
+            />
     </fragment>
 
 
@@ -78,10 +113,18 @@
         tools:layout="@layout/fragment_rezept_detail">
         <action
             android:id="@+id/action_rezeptDetailFragment_to_dataFragment"
-            app:destination="@id/dataFragment" />
+            app:destination="@id/dataFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
         <action
             android:id="@+id/action_rezeptDetailFragment_to_rezeptBearbeitenFragment"
-            app:destination="@id/rezeptBearbeitenFragment" />
+            app:destination="@id/rezeptBearbeitenFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
         <argument
             android:name="id"
             app:argType="string" />
@@ -93,8 +136,13 @@
         tools:layout="@layout/fragment_tip" >
         <action
             android:id="@+id/action_tipFragment_to_dataFragment"
-            app:destination="@id/dataFragment" />
+            app:destination="@id/dataFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
+
     <fragment
         android:id="@+id/klausFragment"
         android:name="com.example.einloggohnegoogle.ui.KlausFragment"
@@ -102,10 +150,18 @@
         tools:layout="@layout/fragment_klaus" >
         <action
             android:id="@+id/action_klausFragment_to_dataFragment"
-            app:destination="@id/dataFragment" />
+            app:destination="@id/dataFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
         <action
             android:id="@+id/action_klausFragment_to_rezeptDetailFragment"
-            app:destination="@id/rezeptDetailFragment" />
+            app:destination="@id/rezeptDetailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"/>
     </fragment>
     <fragment
         android:id="@+id/infoEinsFragment"
