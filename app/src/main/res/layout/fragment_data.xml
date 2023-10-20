@@ -20,6 +20,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="323dp"
+        android:layout_height="50dp"
+        app:iconifiedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/drawerLayout"
+        app:queryHint="Suche Rezepte"
+        tools:layout_editor_absoluteX="34dp" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -43,8 +53,9 @@
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="403dp"
+        android:layout_height="649dp"
+        android:layout_marginTop="45dp"
         android:fitsSystemWindows="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,11 +77,6 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
         <!-- Hamburger-Menü -->
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
@@ -91,9 +97,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
 
+        android:elevation="20dp"
         android:text="Video"
         app:cornerRadius="5dp"
-        android:elevation="20dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
