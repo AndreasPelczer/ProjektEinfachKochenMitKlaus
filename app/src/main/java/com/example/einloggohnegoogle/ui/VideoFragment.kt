@@ -11,10 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.einloggohnegoogle.R
-import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.adapter.YouTubeVideoAdapter
 import com.example.einloggohnegoogle.data.YouTubeVideo
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
+import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -72,7 +72,8 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=AdvUcoaXm24&t=13s",
             "https://www.youtube.com/watch?v=eyfDl8gRwG0",
             "https://www.youtube.com/watch?v=UNMNZtTQA4o",
-            "https://www.youtube.com/watch?v=gx-GSXBjAPY")//Gerichte
+            "https://www.youtube.com/watch?v=gx-GSXBjAPY"
+        )//Gerichte
         val youtubeUrls3 = listOf(
             "https://www.youtube.com/watch?v=qZe2MS3TLK8&t=6s",
             "https://www.youtube.com/watch?v=A6WXl2Qd0PE&list=PLUmbHzQfets0JzlLGAEWy8XvbtO-JJxO3",
@@ -81,25 +82,54 @@ class VideoFragment : Fragment() {
             "https://www.youtube.com/watch?v=V2lX5N3NF2w",
             "https://www.youtube.com/watch?v=dGy5IPUZmt8",
             "https://www.youtube.com/watch?v=qZe2MS3TLK8",
-            )//Süßes
+        )//Süßes
         val youtubeUrls4 = listOf(
-           " https://youtu.be/zQfd_bpXsQg?si=ckW9fIrS-4eBjbP7",
+            " https://youtu.be/zQfd_bpXsQg?si=ckW9fIrS-4eBjbP7",
             "https://youtu.be/MQN3W9aTXKM?si=IqQa05j6acf1jRLU  ",
             "https://youtu.be/NcU80Rehds0?si=NQiVOfnBKXGnCffX ",
             "https://youtu.be/sLiSFA6K40k?si=K62mGz5MUy7QvL6k",
 
             )
         val videoTitles1 = listOf(
-            "Video 1 Title",
-            "Video 2 Title",
-            "Video 3 Title",
+            "Hühnersuppe",
+            "Bohnensuppe mit Liwanzen",
+            "klare Ochsenschwanzsuppe",
+            "Leberknödelsuppe",
+            "gebundene Ochsenschw.Suppe",
+            "Rindfleischsuppe + Klößchen",
+            "Bohnensuppe + Nocken",
+            "Thunasandwich",
+            "Sandwich",
+            "Tramezzino",
+            "Schrimpsalat",
+            "Muscheln in Weißwein",
+            "Lachssalat + Pastete",
+            "Bohnensalat",
+            "Forelle Müllerin"
             // Füge hier die restlichen Überschriften für die erste Liste hinzu
         )
 
         val videoTitles2 = listOf(
-            "Video 1 Title",
-            "Video 2 Title",
-            "Video 3 Title",
+            "Aal in Dill",
+            "Szegediener",
+            "Schaschlick",
+            "Hähnchen mit Reis",
+            "Paprikasch mit Nockerl",
+            "Blumenkohlauflauf",
+            "Schweineroulade",
+            "Cordon Bleu",
+            "Minutensteack",
+            "Wiener Backhändl",
+            "Lamm Schmorbraten",
+            "Entenbraten mit Rotkohl",
+            "Entenbrust mit Wirsing",
+            "Schweinebauch",
+            "Gulasch",
+            "Tortellini in Sahne",
+            "Entenbrust",
+            "Nudelauflauf",
+            "Forelle Müllerin"
+
             // Füge hier die restlichen Überschriften für die zweite Liste hinzu
         )
 
@@ -115,12 +145,12 @@ class VideoFragment : Fragment() {
         )
 
         val videoTitles4 = listOf(
-            "Video 1 aaa",
-            "Video 2 Title",
-            "Video 3 Title",
+            "Ausbeinen",
+            "Schweinerücken",
+            "Panieren",
+            "Ochsenschwanz"
             // Füge hier die restlichen Überschriften für die vierte Liste hinzu
         )
-
 
 
         // Extract video IDs
@@ -147,15 +177,15 @@ class VideoFragment : Fragment() {
 
 
         val recyclerView1: RecyclerView = view.findViewById(R.id.recyclerView1)
-     //   recyclerView1.layoutManager = LinearLayoutManager(requireContext())
+        //   recyclerView1.layoutManager = LinearLayoutManager(requireContext())
         recyclerView1.adapter = YouTubeVideoAdapter(videos)
 
         val recyclerView2: RecyclerView = view.findViewById(R.id.recyclerView2)
-      //  recyclerView2.layoutManager = LinearLayoutManager(requireContext())
+        //  recyclerView2.layoutManager = LinearLayoutManager(requireContext())
         recyclerView2.adapter = YouTubeVideoAdapter(videos2)
 
         val recyclerView3: RecyclerView = view.findViewById(R.id.recyclerView3)
-      //  recyclerView3.layoutManager = LinearLayoutManager(requireContext())
+        //  recyclerView3.layoutManager = LinearLayoutManager(requireContext())
         recyclerView3.adapter = YouTubeVideoAdapter(videos3)
 
         val recyclerView4: RecyclerView = view.findViewById(R.id.recyclerView4)
@@ -198,6 +228,7 @@ class VideoFragment : Fragment() {
             findNavController().navigate(R.id.infoEinsFragment)
         }
     }
+
     private fun extractVideoId(youtubeUrl: String): String {
         val pattern =
             "(?<=watch\\?v=|/videos/|embed/|youtu.be/|/v/|/e/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2Fvideos\u200C\u200B|youtu.be%2F)[^#&?\\n]*"

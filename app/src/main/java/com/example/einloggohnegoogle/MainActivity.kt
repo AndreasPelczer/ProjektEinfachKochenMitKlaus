@@ -15,13 +15,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        // Beispiel Rezepte für Vorspeisen
+        /* Beispiel Rezepte für Vorspeisen
         val vorspeisen = mutableListOf<Rezept>()
         vorspeisen.add(
+
             Rezept(
-                name = "Caprese-Salat",
-                zutaten = "Tomaten, Mozzarella, Basilikum, Balsamico, Olivenöl, Salz, Pfeffer",
-                zubereitung = "Tomaten und Mozzarella in Scheiben schneiden, mit Basilikumblättern garnieren. Mit Balsamico und Olivenöl beträufeln, mit Salz und Pfeffer würzen."
+                name = "Hühnersuppe",
+                zutaten = "1 Suppenhuhn (ca. 1,5 kg),\n2 Möhren,\n2 Selleriestangen,\n2 Zwiebeln,\n2 Lorbeerblätter,\n5 Pfefferkörner,\nSalz nach Geschmack,\n500 g Suppennudeln oder Reis (nach Wahl),\nFrische Petersilie zum Garnieren",
+                zubereitung = "1. Das Suppenhuhn waschen und in einen großen Topf geben. Mit Wasser bedecken und zum Kochen bringen.\n2. Die Möhren, Selleriestangen und Zwiebeln grob schneiden und zum Huhn hinzufügen.\n3. Die Lorbeerblätter und Pfefferkörner hinzufügen. Salz nach Geschmack zugeben.\n4. Die Suppe zum Kochen bringen, dann die Hitze reduzieren und etwa 2 Stunden köcheln lassen. Den entstehenden Schaum regelmäßig abschöpfen.\n5. Das Huhn aus der Suppe nehmen und das Fleisch von den Knochen lösen. Das Fleisch in mundgerechte Stücke schneiden und beiseite stellen.\n6. Die Suppe durch ein feines Sieb oder ein Mulltuch abseihen, um klare Brühe zu erhalten.\n7. Die klare Brühe zurück in den Topf gießen und die Suppennudeln oder Reis hinzufügen. Die Suppe gemäß den Anweisungen auf der Verpackung der Nudeln oder des Reises zubereiten.\n8. Das Hühnerfleisch wieder in die Suppe geben und kurz erwärmen.\n9. Mit frischer Petersilie garnieren und servieren."
             )
         )
         // Weitere Vorspeisen hinzufügen...
@@ -29,9 +30,74 @@ class MainActivity : AppCompatActivity() {
         //Beispiel Rezepte für Hauptgänge
         val hauptgaenge = listOf<Rezept>(
             Rezept(
+                name = "Bohnensuppe mit Liwanzen",
+                zutaten = "250 g grüne Bohnen,\n2 Kartoffeln,\n1 Zwiebel,\n2 Knoblauchzehen,\n1 EL Öl,\n1 l Gemüsebrühe,\n2 Lorbeerblätter,\n4 EL Mehl,\n2 Eier,\n100 ml Milch,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die grünen Bohnen waschen und in kleine Stücke schneiden.\n2. Die Kartoffeln schälen und in Würfel schneiden.\n3. Die Zwiebel und Knoblauchzehen fein hacken.\n4. In einem Topf das Öl erhitzen und die gehackte Zwiebel und Knoblauch darin anschwitzen.\n5. Die grünen Bohnen und Kartoffeln hinzufügen und kurz anbraten.\n6. Die Gemüsebrühe hinzugießen, die Lorbeerblätter hinzufügen und alles köcheln lassen, bis das Gemüse weich ist.\n7. In einer separaten Schüssel Mehl, Eier und Milch zu einem Teig verrühren. Mit Salz und Pfeffer würzen.\n8. Mit einem Teelöffel kleine Teigportionen in die kochende Suppe geben und als Liwanzen kochen, bis sie auf der Oberfläche schwimmen.\n9. Die Lorbeerblätter aus der Suppe entfernen und mit den Liwanzen servieren."
+            ),
+            Rezept(
+                name = "Klare Ochsenschwanzsuppe",
+                zutaten = "1 Ochsenschwanz,\n2 Zwiebeln,\n2 Karotten,\n2 Selleriestangen,\n2 Lorbeerblätter,\n5 Pfefferkörner,\nSalz nach Geschmack,\nSuppennudeln (nach Wahl),\nFrische Petersilie zum Garnieren",
+                zubereitung = "1. Den Ochsenschwanz waschen und in einen großen Topf geben. Mit Wasser bedecken und zum Kochen bringen.\n2. Die Zwiebeln, Karotten und Selleriestangen grob schneiden und zum Ochsenschwanz hinzufügen.\n3. Die Lorbeerblätter und Pfefferkörner hinzufügen. Salz nach Geschmack zugeben.\n4. Die Suppe zum Kochen bringen, dann die Hitze reduzieren und etwa 4-5 Stunden köcheln lassen. Den entstehenden Schaum regelmäßig abschöpfen.\n5. Den Ochsenschwanz aus der Suppe nehmen und das Fleisch von den Knochen lösen. Das Fleisch in mundgerechte Stücke schneiden und beiseite stellen.\n6. Die Suppe durch ein feines Sieb oder ein Mulltuch abseihen, um klare Brühe zu erhalten.\n7. Die klare Brühe zurück in den Topf gießen und die Suppennudeln hinzufügen. Die Suppe gemäß den Anweisungen auf der Verpackung der Nudeln zubereiten.\n8. Das Ochsenschwanzfleisch wieder in die Suppe geben und kurz erwärmen.\n9. Mit frischer Petersilie garnieren und servieren."
+            ),
+            Rezept(
+                name = "Leberknödelsuppe",
+                zutaten = "250 g Rinderleber,\n1 Zwiebel,\n2 Knoblauchzehen,\n2 EL Butter,\n200 g altbackenes Brot,\n200 ml Milch,\n2 Eier,\n1 EL gehackte Petersilie,\nSalz und Pfeffer nach Geschmack,\n1 l Rinderbrühe",
+                zubereitung = "1. Die Rinderleber waschen, trocken tupfen und in kleine Stücke schneiden.\n2. Die Zwiebel und Knoblauchzehen fein hacken.\n3. In einer Pfanne die Butter erhitzen und die gehackte Zwiebel und Knoblauch darin anschwitzen.\n4. Das altbackene Brot in kleine Würfel schneiden und in der Milch einweichen.\n5. Die eingeweichten Brotwürfel gut ausdrücken und in eine Schüssel geben.\n6. Die Rinderleber, die Zwiebel-Knoblauch-Mischung, Eier, gehackte Petersilie, Salz und Pfeffer zu den Brotwürfeln in die Schüssel geben.\n7. Alles gründlich vermengen und zu kleinen Knödeln formen.\n8. Die Rinderbrühe in einem Topf zum Kochen bringen.\n9. Die Leberknödel in die kochende Brühe geben und etwa 10-15 Minuten köcheln lassen, bis sie gar sind.\n10. Die Leberknödelsuppe in tiefen Tellern servieren."
+            ),
+            Rezept(
+                name = "Gebundene Ochsenschwanzsuppe",
+                zutaten = "1 Ochsenschwanz,\n2 Zwiebeln,\n2 Karotten,\n2 Selleriestangen,\n2 Lorbeerblätter,\n5 Pfefferkörner,\nSalz nach Geschmack,\n2 EL Mehl,\n2 EL Butter,\nSuppennudeln (nach Wahl),\nFrische Petersilie zum Garnieren",
+                zubereitung = "1. Den Ochsenschwanz waschen und in einen großen Topf geben. Mit Wasser bedecken und zum Kochen bringen.\n2. Die Zwiebeln, Karotten und Selleriestangen grob schneiden und zum Ochsenschwanz hinzufügen.\n3. Die Lorbeerblätter und Pfefferkörner hinzufügen. Salz nach Geschmack zugeben.\n4. Die Suppe zum Kochen bringen, dann die Hitze reduzieren und etwa 4-5 Stunden köcheln lassen. Den entstehenden Schaum regelmäßig abschöpfen.\n5. Den Ochsenschwanz aus der Suppe nehmen und das Fleisch von den Knochen lösen. Das Fleisch in mundgerechte Stücke schneiden und beiseite stellen.\n6. Die Suppe durch ein feines Sieb oder ein Mulltuch abseihen, um klare Brühe zu erhalten.\n7. Die klare Brühe zurück in den Topf gießen und die Suppennudeln hinzufügen. Die Suppe gemäß den Anweisungen auf der Verpackung der Nudeln zubereiten.\n8. Das Ochsenschwanzfleisch wieder in die Suppe geben und kurz erwärmen.\n9. In einer separaten Pfanne die Butter erhitzen und das Mehl darin anschwitzen, bis es goldbraun ist. Die Mehlschwitze zur Suppe geben und gut verrühren, bis die Suppe gebunden ist.\n10. Mit frischer Petersilie garnieren und servieren."
+            ),
+            Rezept(
+                name = "Rindfleischsuppe + Klößchen",
+                zutaten = "250 g Rindfleisch,\n2 Zwiebeln,\n2 Karotten,\n2 Selleriestangen,\n2 Lorbeerblätter,\n5 Pfefferkörner,\nSalz nach Geschmack,\nSuppennudeln (nach Wahl),\nFrische Petersilie zum Garnieren",
+                zubereitung = "1. Das Rindfleisch waschen und in einen großen Topf geben. Mit Wasser bedecken und zum Kochen bringen.\n2. Die Zwiebeln, Karotten und Selleriestangen grob schneiden und zum Rindfleisch hinzufügen.\n3. Die Lorbeerblätter und Pfefferkörner hinzufügen. Salz nach Geschmack zugeben.\n4. Die Suppe zum Kochen bringen, dann die Hitze reduzieren und etwa 2 Stunden köcheln lassen. Den entstehenden Schaum regelmäßig abschöpfen.\n5. Das Rindfleisch aus der Suppe nehmen und in mundgerechte Stücke schneiden. Beiseite stellen.\n6. Die Suppe durch ein feines Sieb oder ein Mulltuch abseihen, um klare Brühe zu erhalten.\n7. Die klare Brühe zurück in den Topf gießen und die Suppennudeln hinzufügen. Die Suppe gemäß den Anweisungen auf der Verpackung der Nudeln zubereiten.\n8. Das Rindfleisch wieder in die Suppe geben und kurz erwärmen.\n9. Mit frischer Petersilie garnieren und servieren."
+            ),
+            Rezept(
+                name = "Bohnensuppe + Nocken",
+                zutaten = "250 g grüne Bohnen,\n2 Kartoffeln,\n1 Zwiebel,\n1 Knoblauchzehe,\n2 EL Öl,\n1 l Gemüsebrühe,\n2 EL Mehl,\n2 Eier,\n100 ml Milch,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die grünen Bohnen waschen und in kleine Stücke schneiden.\n2. Die Kartoffeln schälen und in Würfel schneiden.\n3. Die Zwiebel und Knoblauchzehe fein hacken.\n4. In einem Topf das Öl erhitzen und die gehackte Zwiebel und Knoblauch darin anschwitzen.\n5. Die grünen Bohnen und Kartoffeln hinzufügen und kurz anbraten.\n6. Die Gemüsebrühe hinzugießen und alles köcheln lassen, bis das Gemüse weich ist.\n7. In einer separaten Schüssel Mehl, Eier und Milch zu einem Teig verrühren. Mit Salz und Pfeffer würzen.\n8. Mit einem Teelöffel kleine Teigportionen in die kochende Suppe geben und als Nocken kochen, bis sie auf der Oberfläche schwimmen.\n9. Die Bohnensuppe mit Nocken in tiefen Tellern servieren."
+            ),
+            Rezept(
+                name = "Thunasandwich",
+                zutaten = "2 Dosen Thunfisch in Wasser,\n4 EL Mayonnaise,\n2 EL gehackte Zwiebeln,\n1 EL gehackte Gewürzgurken,\n1 TL Senf,\nSalz und Pfeffer nach Geschmack,\n8 Scheiben Brot,\nBlätter Kopfsalat und Tomatenscheiben zum Garnieren",
+                zubereitung = "1. Den Thunfisch abtropfen lassen und in eine Schüssel geben.\n2. Mayonnaise, gehackte Zwiebeln, gehackte Gewürzgurken, Senf, Salz und Pfeffer hinzufügen. Alles gut vermengen.\n3. Die Mischung gleichmäßig auf 4 Scheiben Brot verteilen.\n4. Jeweils eine zweite Scheibe Brot darauflegen, um Sandwiches zu bilden.\n5. Mit Blättern Kopfsalat und Tomatenscheiben garnieren.\n6. Die Sandwiches in der Mitte schneiden und servieren."
+            ),
+            Rezept(
+                name = "Sandwich",
+                zutaten = "8 Scheiben Brot,\n4 Scheiben Schinken,\n4 Scheiben Käse,\nButter oder Margarine nach Geschmack,\nBlätter Kopfsalat und Tomatenscheiben zum Garnieren",
+                zubereitung = "1. Die Brotscheiben leicht mit Butter oder Margarine bestreichen.\n2. Auf 4 der Brotscheiben jeweils eine Scheibe Schinken und eine Scheibe Käse legen.\n3. Die restlichen Brotscheiben darauflegen, um Sandwiches zu bilden.\n4. Mit Blättern Kopfsalat und Tomatenscheiben garnieren.\n5. Die Sandwiches in der Mitte schneiden und servieren."
+            ),
+            Rezept(
+                name = "Tramezzino",
+                zutaten = "6 Scheiben Sandwichbrot,\n100 g gekochter Schinken,\n50 g Mayonnaise,\n50 g weiche Butter,\nSalz und Pfeffer nach Geschmack,\nBlätter Kopfsalat und Tomatenscheiben zum Garnieren",
+                zubereitung = "1. Die Mayonnaise, weiche Butter, Salz und Pfeffer in einer Schüssel vermengen.\n2. Die Schinkenscheiben leicht mit der Butter-Mayonnaise-Mischung bestreichen.\n3. Je eine Schinkenscheibe, Blätter Kopfsalat und Tomatenscheiben auf jeweils 3 Scheiben Sandwichbrot legen.\n4. Die übrigen 3 Scheiben Brot darauflegen, um Tramezzino-Sandwiches zu bilden.\n5. Die Sandwiches diagonal in zwei Hälften schneiden und servieren."
+            ),
+            Rezept(
+                name = "Schrimpsalat",
+                zutaten = "300 g Shrimps (gekocht und geschält),\n1 Eisbergsalat,\n1 Tomate,\n1/2 Gurke,\n1 Zwiebel,\n4 EL Olivenöl,\nSaft von 1 Zitrone,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die Shrimps gründlich abspülen und abtropfen lassen.\n2. Den Eisbergsalat, die Tomate, die Gurke und die Zwiebel waschen und in kleine Stücke schneiden.\n3. In einer Schüssel Olivenöl und Zitronensaft vermengen und mit Salz und Pfeffer würzen.\n4. Die Shrimps und das geschnittene Gemüse in die Schüssel geben und vorsichtig vermengen.\n5. Den Shrimps-Salat vor dem Servieren etwa 30 Minuten im Kühlschrank ziehen lassen. Gut gekühlt servieren."
+            ),
+            Rezept(
+                name = "Muscheln in Weißwein",
+                zutaten = "1 kg frische Miesmuscheln,\n2 Schalotten,\n2 Knoblauchzehen,\n2 EL Olivenöl,\n200 ml trockener Weißwein,\n1 Bund Petersilie,\nSalz und Pfeffer nach Geschmack,\nBaguette zum Servieren",
+                zubereitung = "1. Die Miesmuscheln gründlich unter fließendem Wasser abspülen und eventuell vorhandene Bärte entfernen.\n2. Die Schalotten und Knoblauchzehen fein hacken.\n3. In einem großen Topf das Olivenöl erhitzen und die gehackten Schalotten und Knoblauch darin anschwitzen, bis sie glasig sind.\n4. Die Miesmuscheln hinzufügen und kurz anbraten.\n5. Mit trockenem Weißwein ablöschen und den Wein etwa 2-3 Minuten einkochen lassen.\n6. Die Petersilie grob hacken und zu den Muscheln geben. Mit Salz und Pfeffer würzen.\n7. Den Topf abdecken und die Muscheln bei mittlerer Hitze etwa 5-7 Minuten kochen, bis sie sich geöffnet haben.\n8. Geschlossene Muscheln aussortieren und nicht verwenden.\n9. Die geöffneten Muscheln in tiefen Tellern anrichten und mit Baguette servieren."
+            ),
+            Rezept(
+                name = "Lachssalat + Pastete",
+                zutaten = "200 g Räucherlachs,\n1 Eisbergsalat,\n1 Tomate,\n1/2 Gurke,\n1 Zwiebel,\n4 EL Olivenöl,\nSaft von 1 Zitrone,\nSalz und Pfeffer nach Geschmack,\nFrischkäsepastete,\nBrot zum Servieren",
+                zubereitung = "1. Den Räucherlachs in kleine Stücke schneiden.\n2. Den Eisbergsalat, die Tomate, die Gurke und die Zwiebel waschen und in kleine Stücke schneiden.\n3. In einer Schüssel Olivenöl und Zitronensaft vermengen und mit Salz und Pfeffer würzen.\n4. Den Räucherlachs und das geschnittene Gemüse in die Schüssel geben und vorsichtig vermengen.\n5. Die Frischkäsepastete auf Brot oder Baguette streichen und auf einem Teller anrichten.\n6. Den Lachssalat als Beilage servieren."
+            ),
+            Rezept(
                 name = "Lammschmorbraten",
                 zutaten = "1,5 kg Lammkeule,\n2 Zwiebeln,\n4 Knoblauchzehen,\n2 Karotten,\n2 Selleriestangen,\n2 EL Olivenöl,\n500 ml Rotwein,\n500 ml Fleischbrühe,\n2 Lorbeerblätter,\n2 Zweige Rosmarin,\nSalz und Pfeffer nach Geschmack",
                 zubereitung = "1. Den Backofen auf 160°C vorheizen.\n2. Die Lammkeule salzen und pfeffern.\n3. In einem großen Bräter das Olivenöl erhitzen und die Lammkeule von allen Seiten anbraten, bis sie eine schöne braune Farbe hat. Dann aus dem Bräter nehmen und beiseite stellen.\n4. Die Zwiebeln, den Knoblauch, die Karotten und den Sellerie im Bräter anbraten, bis sie weich sind.\n5. Den Rotwein hinzufügen und aufkochen lassen. Die Fleischbrühe, Lorbeerblätter und Rosmarin hinzufügen.\n6. Die Lammkeule zurück in den Bräter legen und alles abdecken.\n7. Den Bräter in den vorgeheizten Ofen stellen und den Lammschmorbraten ca. 2,5 Stunden schmoren lassen, bis das Fleisch zart ist. Gelegentlich mit der Soße übergießen.\n8. Vor dem Servieren die Lorbeerblätter und Rosmarinzweige entfernen. Den Lammschmorbraten in Scheiben schneiden und mit der Soße servieren."
+            ),
+            Rezept(
+                name = "Bohnensalat",
+                zutaten = "500 g grüne Bohnen,\n1 Zwiebel,\n2 EL Weißweinessig,\n3 EL Olivenöl,\n1 TL Senf,\nSalz und Pfeffer nach Geschmack",
+                zubereitung = "1. Die grünen Bohnen waschen und in kochendem Salzwasser etwa 6-8 Minuten blanchieren, bis sie bissfest sind.\n2. Die Bohnen abgießen und mit kaltem Wasser abschrecken, um den Garprozess zu stoppen.\n3. Die Zwiebel fein hacken.\n4. In einer Schüssel Weißweinessig, Olivenöl, Senf, Salz und Pfeffer vermengen.\n5. Die gehackte Zwiebel hinzufügen und gut verrühren.\n6. Die grünen Bohnen in die Schüssel geben und vorsichtig in der Vinaigrette wenden.\n7. Den Bohnensalat mindestens 30 Minuten im Kühlschrank ziehen lassen, bevor er serviert wird."
             ),
             Rezept(
                 name = "Lachsalat und Lachspaste",
@@ -119,7 +185,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Fehler beim Speichern des Rezepts in Firestore", e)
                 }
-        }
+        }*/
 
     }
 }
