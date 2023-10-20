@@ -21,14 +21,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.appcompat.widget.SearchView
+    <EditText
         android:id="@+id/searchView"
-        android:layout_width="323dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         app:iconifiedByDefault="false"
+        android:hint="@string/Rezeptsuche"
         app:layout_constraintBottom_toTopOf="@+id/drawerLayout"
-        app:queryHint="Suche Rezepte"
-        tools:layout_editor_absoluteX="34dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+        app:queryHint="Suche Rezepte" />
 
     <ImageView
         android:id="@+id/imageView"

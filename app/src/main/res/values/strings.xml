@@ -43,5 +43,6 @@ Die deutsche Bevölkerung, die nach Ungarn zog, brachte ihre kulinarische Tradit
     <string name="Technik">Küchenwissen</string>
     <string name="kategorie">Kategorie</string>
     <string name="eigeneRezepte">Eigene Rezepte</string>
+    <string name="Rezeptsuche">Rezeptsuche\n</string>
 
 </resources>
