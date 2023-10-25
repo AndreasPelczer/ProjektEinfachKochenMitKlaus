@@ -15,7 +15,6 @@ import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
 import com.example.einloggohnegoogle.ui.DataFragmentDirections
 import com.google.firebase.firestore.FirebaseFirestore
 
-
 class RezeptAdapter(
 
     private val viewModel: FirebaseViewmodel,
