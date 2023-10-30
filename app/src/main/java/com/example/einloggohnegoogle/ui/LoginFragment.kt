@@ -34,6 +34,13 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Überprüfen, ob der Benutzer bereits angemeldet ist
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            // Der Benutzer ist bereits angemeldet, navigiere zur Datenansicht
+            findNavController().navigate(R.id.dataFragment)
+        }
+
         // Setze einen Click-Listener für die Registrierung
         binding.signUpBTN.setOnClickListener {
             val email = binding.emailET.text.toString()
@@ -69,6 +76,7 @@ class LoginFragment : Fragment() {
             }
         }
     }
+
 
     companion object {
         private const val TAG = "LoginFragment" // TAG für Log-Nachrichten
