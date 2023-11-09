@@ -13,9 +13,7 @@
         android:layout_height="wrap_content"
         android:hint="Rezeptname"
         app:layout_constraintBottom_toTopOf="@+id/zutatenET"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
+        app:layout_constraintEnd_toEndOf="@+id/zutatenET"
         app:layout_constraintTop_toBottomOf="@+id/nameET"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -26,7 +24,6 @@
         android:layout_marginBottom="120dp"
         android:hint="@string/Zubereitung"
         app:layout_constraintBottom_toTopOf="@+id/RezeptSpeichernBTN"
-        app:layout_constraintEnd_toEndOf="@+id/zutatenET"
         app:layout_constraintStart_toStartOf="@+id/zutatenET"
         app:layout_constraintTop_toBottomOf="@+id/zutatenET"
         app:layout_constraintVertical_bias="0.035"
@@ -46,6 +43,7 @@
 
         <AutoCompleteTextView
             android:id="@+id/categoryET"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -60,22 +58,21 @@
         android:id="@+id/RezeptSpeichernBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/speichern"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/AbbruchBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/abbruch"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/zutatenET"
@@ -83,9 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:hint="@string/Zutaten"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
+        app:layout_constraintStart_toStartOf="@+id/nameET"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
 
 

@@ -11,36 +11,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/searchView2"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
         app:layout_constraintBottom_toTopOf="@+id/videobuttonBTN"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058">
+        app:layout_constraintVertical_bias="0.071">
 
         <ImageView
             android:id="@+id/searchBTN"
-            android:layout_width="39dp"
-            android:layout_height="43dp"
+            android:layout_width="36dp"
+            android:layout_height="37dp"
             android:src="@drawable/baseline_search_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/searchView"
-            app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/searchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/Rezeptsuche"
-            android:visibility="invisible"
-            app:iconifiedByDefault="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:queryHint="Suche Rezepte" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -50,15 +39,17 @@
         android:fitsSystemWindows="false"
         app:layout_constraintBottom_toTopOf="@+id/neuesRezeptBTN"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView2"
+        app:layout_constraintVertical_bias="1.0"
         tools:context=".ui.HomeFragment"
         tools:ignore="MissingConstraints">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rezepteRecyclerView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
@@ -108,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:elevation="20dp"
         android:stateListAnimator="@null"
         android:text="Video"
@@ -146,7 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:elevation="20dp"
         android:stateListAnimator="@null"
         android:text="Rezepte"
@@ -162,5 +153,16 @@
         android:src="@drawable/baseline_menu_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/Rezeptsuche"
+        android:visibility="invisible"
+        app:iconifiedByDefault="false"
+        app:queryHint="Suche Rezepte"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="36dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

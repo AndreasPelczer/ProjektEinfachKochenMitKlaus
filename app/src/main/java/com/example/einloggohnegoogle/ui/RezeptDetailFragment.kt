@@ -39,7 +39,7 @@ class RezeptDetailFragment : Fragment() {
                 binding.RezeptNameTV.text = item.name
                 Log.d("RezeptName", " to RezeptDetailFragment with ID: $id")
 
-                binding.RezeptZutatenTV.text = item.zutaten
+                binding.RezeptZutatenTV.text = "${item.zutaten}\n"
                 Log.d("RezeptZutaten", " to RezeptDetailFragment with ID: $id")
 
                 binding.RezeptZubereitungTV.text = item.zubereitung

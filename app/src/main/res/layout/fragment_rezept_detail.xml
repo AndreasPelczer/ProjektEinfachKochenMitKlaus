@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:navGraph="@navigation/nav_graph"
-    tools:context=".ui.RezeptDetailFragment"
-   > <!-- Hintergrundfarbe für den Light-Modus -->
+    tools:context=".ui.RezeptDetailFragment"> <!-- Hintergrundfarbe für den Light-Modus -->
 
 
     <ImageView
@@ -20,9 +19,7 @@
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_arrow_back_24_night"
-    />
-
+        app:srcCompat="@drawable/baseline_arrow_back_24_night" />
 
 
     <Button
@@ -30,8 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="@string/rezept_l_schen"
         android:elevation="20dp"
+        android:text="@string/rezept_l_schen"
 
         app:backgroundTint="@color/colorPrimaryDay"
         app:cornerRadius="5dp"
@@ -45,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Rezept bearbeiten"
         android:elevation="20dp"
+        android:text="Rezept bearbeiten"
 
         app:backgroundTint="@color/colorPrimaryDay"
         app:cornerRadius="5dp"
@@ -87,11 +84,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp">
 
             <TextView
                 android:id="@+id/RezeptNameTV"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="32dp"
@@ -107,7 +106,8 @@
                 android:layout_marginTop="32dp"
                 android:autofillHints=""
                 android:foregroundGravity="center"
-                android:gravity="center"
+                android:gravity="left"
+                android:lineSpacingExtra="12sp"
                 android:text="@string/Zutaten" />
 
             <TextView
@@ -116,8 +116,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:foregroundGravity="center_vertical|center"
-                android:gravity="center"
-                android:text="@string/Zubereitung" />
+                android:gravity="left"
+                android:lineSpacingExtra="8sp"
+                android:maxLines="200"
+                android:text="@string/Zubereitung"
+                android:textAlignment="textStart" />
 
             <TextView
                 android:id="@+id/erstellerTV"
