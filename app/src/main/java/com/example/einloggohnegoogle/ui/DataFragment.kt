@@ -120,6 +120,9 @@ class DataFragment : Fragment() {
         binding.hamburgermenuimageIV.setOnClickListener {
             openMenu()
         }
+        binding.searchBTN.setOnClickListener {
+            findNavController().navigate((R.id.action_dataFragment_to_searchFragment))
+        }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navigationView: NavigationView = binding.navView
 

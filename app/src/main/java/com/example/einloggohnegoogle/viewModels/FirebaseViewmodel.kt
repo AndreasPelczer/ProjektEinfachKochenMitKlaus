@@ -53,11 +53,11 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
     val filteredNameList: LiveData<List<Rezept>>
         get() = _filteredNameList
 
-    val searchDataList: LiveData<List<Rezept>> = _filteredNameList
+    val searchDataList: LiveData<List<Rezept>> = repository.getAll()
 
 
     init {
-        searchDataList.observeForever { rezept ->
+        searchDataList.observeForever {
             filterNameByChar("")
         }
         setupUserEnv()
@@ -189,14 +189,15 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         val logTag = "SearchDebug"
         Log.d(logTag, "filterNameByChar aufgerufen mit: $stringDesc")
         try {
-            val allRezept = rezeptDataList.value ?: emptyList()
+            val allRezept = searchDataList.value ?: emptyList()
+            Log.d("getAll","${allRezept.size}")
             val filteredRezept = allRezept.filter {
                 stringDesc.isEmpty() ||
                         it.name.contains(stringDesc, ignoreCase = true) ||
                         it.zutaten.contains(stringDesc, ignoreCase = true) ||
                         it.zubereitung.contains(stringDesc, ignoreCase = true)
             }.sortedByDescending { it.name }
-            _filteredNameList.postValue(filteredRezept) // Aktualisiere _filteredNameList
+            _filteredNameList.value = filteredRezept
         } catch (e: Exception) {
             Log.e(logTag, "Error filtering posts: $e")
         }

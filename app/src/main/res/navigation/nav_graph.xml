@@ -65,6 +65,9 @@
             app:exitAnim="@anim/slide_out"
             app:popEnterAnim="@anim/slide_in"
             app:popExitAnim="@anim/slide_out"/>
+        <action
+            android:id="@+id/action_dataFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
 
     </fragment>
 
@@ -194,6 +197,15 @@
         <action
             android:id="@+id/action_settingsFragment_to_dataFragment"
             app:destination="@id/dataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.einloggohnegoogle.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_rezeptDetailFragment"
+            app:destination="@id/rezeptDetailFragment" />
     </fragment>
 
 
