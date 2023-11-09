@@ -67,7 +67,7 @@ class LoginFragment : Fragment() {
                 }
 
                 //Wenn User eingeloggt ist, navigiere weiter
-                viewModel.user.observe(viewLifecycleOwner) {
+               /* viewModel.user.observe(viewLifecycleOwner) {
                     if (it == null) { // not logged in
                         binding.tvLoggedIn.text = "You are not logged in"
                     } else
@@ -75,7 +75,7 @@ class LoginFragment : Fragment() {
                         binding.tvLoggedIn.text = "You are logged in!"
                         findNavController().navigate(R.id.dataFragment)
                     }
-                }
+                }*/
 
             }
         }

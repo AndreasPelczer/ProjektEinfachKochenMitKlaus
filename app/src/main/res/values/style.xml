@@ -4,5 +4,4 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item> <!-- Der Wert bestimmt die Rundheit (50% für ein perfektes Kreis-Design) -->
     </style>
-
 </resources>

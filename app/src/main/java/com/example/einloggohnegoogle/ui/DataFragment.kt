@@ -40,6 +40,7 @@ class DataFragment : Fragment() {
     val bundle = Bundle()
     private lateinit var rezeptAdapter: RezeptAdapter
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,29 +52,21 @@ class DataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.loadfromFireStore()
-
+        // Initialisierung der RecyclerView
         binding.rezepteRecyclerView.setHasFixedSize(true)
+        rezeptAdapter = RezeptAdapter(
+            viewModel,
+            viewModel.rezeptDataList.value ?: emptyList(),
+            findNavController()
+        )
+        binding.rezepteRecyclerView.adapter = rezeptAdapter
+        binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        //RV wird beobachtet
+        // Beobachtung der Datenänderungen
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
             Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
-            rezeptAdapter = RezeptAdapter(
-                viewModel,
-                viewModel.rezeptDataList.value ?: emptyList(),
-                findNavController()
-            )
-            // Verbinde den Adapter mit dem RecyclerView
-            binding.rezepteRecyclerView.adapter = rezeptAdapter
-            // Setze das Layout-Manager für den RecyclerView
-            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            rezeptAdapter.updateData(rezeptDataList)
         }
-       /* viewModel.filteredNameList.observe(viewLifecycleOwner) { filteredRezepte ->
-            rezeptAdapter = RezeptAdapter(viewModel, filteredRezepte, findNavController())
-            binding.rezepteRecyclerView.adapter = rezeptAdapter
-            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        }*/
-
 
         // Suchfeld-Listener hinzufügen
         binding.searchView.addTextChangedListener(object : TextWatcher {
