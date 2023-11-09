@@ -2,7 +2,13 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Einloggohnegoogle" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/colorPrimaryDay</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryNight</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- Der Wert bestimmt die Rundheit (50% für ein perfektes Kreis-Design) -->
+
+
     </style>
 
     <style name="Theme.Einloggohnegoogle" parent="Base.Theme.Einloggohnegoogle" />

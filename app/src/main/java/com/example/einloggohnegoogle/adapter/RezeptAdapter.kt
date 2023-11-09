@@ -18,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class RezeptAdapter(
 
     private val viewModel: FirebaseViewmodel,
-    private val dataset: List<Rezept>,
+    private var dataset: List<Rezept>,
     private val navController: NavController
 ) :
 
@@ -35,6 +35,11 @@ class RezeptAdapter(
 
     override fun getItemCount(): Int {
         return dataset.size
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(newData: List<Rezept>) {
+        dataset = newData
+        notifyDataSetChanged()
     }
 
     @SuppressLint("SetTextI18n")

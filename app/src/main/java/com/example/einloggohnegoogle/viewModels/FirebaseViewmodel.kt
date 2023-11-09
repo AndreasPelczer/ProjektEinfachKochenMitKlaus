@@ -46,6 +46,22 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
     private val database = FirebaseDatabase.getInstance()
     private val eigeneRezepteList = mutableListOf<EigeneRezepteItem>()
 
+
+    // Ändere searchDataList auf _filteredNameList
+
+    val _filteredNameList = MutableLiveData<List<Rezept>>(emptyList())
+    val filteredNameList: LiveData<List<Rezept>>
+        get() = _filteredNameList
+
+    val searchDataList: LiveData<List<Rezept>> = _filteredNameList
+
+
+    init {
+        searchDataList.observeForever { rezept ->
+            filterNameByChar("")
+        }
+        setupUserEnv()
+    }
     fun insertEigeneRezept(rezept: Rezept) {
 
         eigeneRezepteList.add(EigeneRezepteItem(name = String(), zutaten = String(), zubereitung = String(), videoupload = String(), ersteller = String()))
@@ -53,9 +69,6 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
     fun getCurrentUserId(): String? {
         return repository.getCurrentUserId()
     }
-
-
-
 
     fun insertRezeptData(itemData: Rezept) {
         viewModelScope.launch {
@@ -70,7 +83,6 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
         }
     }
 
-
     fun loadfromFireStore() {
 
         Log.d("FirebaseLoad", "Attempting to load data from Firebase")
@@ -84,9 +96,6 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
                 repository.getRezeptAndSaveToDatabase()
             }
         }
-    }
-    init {
-        setupUserEnv()
     }
 
     //Wird aufgerufen wenn der User eingeloggt wurde
@@ -176,9 +185,27 @@ class FirebaseViewmodel(application: Application) : AndroidViewModel(application
             }
         return liveData
     }
+    fun filterNameByChar(stringDesc: String) {
+        val logTag = "SearchDebug"
+        Log.d(logTag, "filterNameByChar aufgerufen mit: $stringDesc")
+        try {
+            val allRezept = rezeptDataList.value ?: emptyList()
+            val filteredRezept = allRezept.filter {
+                stringDesc.isEmpty() ||
+                        it.name.contains(stringDesc, ignoreCase = true) ||
+                        it.zutaten.contains(stringDesc, ignoreCase = true) ||
+                        it.zubereitung.contains(stringDesc, ignoreCase = true)
+            }.sortedByDescending { it.name }
+            _filteredNameList.postValue(filteredRezept) // Aktualisiere _filteredNameList
+        } catch (e: Exception) {
+            Log.e(logTag, "Error filtering posts: $e")
+        }
+    }
+
 
     fun insertEigeneRezept() {
         eigeneRezepteList.add(EigeneRezepteItem(name = String(), zutaten = String(), zubereitung = String(), videoupload = String(), ersteller = String()))    }
+
 
 
 }

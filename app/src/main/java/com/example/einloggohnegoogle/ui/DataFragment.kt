@@ -13,16 +13,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.GravityCompat
-import androidx.core.widget.addTextChangedListener
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.einloggohnegoogle.R
 import com.example.einloggohnegoogle.adapter.RezeptAdapter
-import com.example.einloggohnegoogle.data.datamodels.MenuState
 import com.example.einloggohnegoogle.data.datamodels.Rezept
 import com.example.einloggohnegoogle.databinding.FragmentDataBinding
 import com.example.einloggohnegoogle.viewModels.FirebaseViewmodel
@@ -32,7 +29,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class DataFragment : Fragment() {
 
-
     private val firestore = FirebaseFirestore.getInstance()
     private val firestoreDocument =
         FirebaseFirestore.getInstance().collection("Rezepte").document("Rezept")
@@ -41,113 +37,57 @@ class DataFragment : Fragment() {
     private lateinit var menuViewModel: MenuViewModel
     private lateinit var drawerLayout: DrawerLayout
     private val rezeptDataList: List<Rezept> = mutableListOf() // Beispiel für die Deklaration
-
-
-    override fun onResume() {
-        super.onResume()
-
-        // Hier rufst du die Methode auf, um Daten zu laden oder zu aktualisieren
-        viewModel.loadfromFireStore()
-    }
+    val bundle = Bundle()
+    private lateinit var rezeptAdapter: RezeptAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel.loadfromFireStore()
         binding = FragmentDataBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    private fun setupRecyclerView(rezeptDataList: List<Rezept>) {
-
-
-        // Initialisiere den Adapter
-        val rezeptAdapter = RezeptAdapter(viewModel, rezeptDataList, findNavController())
-
-        binding.searchView.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Nicht benötigt
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Nicht benötigt
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                val query = s.toString().trim() // Den eingegebenen Text abrufen und Leerzeichen entfernen
-                performSearch(query) // Die Textsuche durchführen
-            }
-        })
-
-
-        // Verbinde den Adapter mit dem RecyclerView
-        binding.rezepteRecyclerView.adapter = rezeptAdapter
-
-        // Setze das Layout-Manager für den RecyclerView
-        binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-    }
-    private fun performSearch(query: String) {
-        // Hier implementierst du deine Suchlogik. Du kannst die Suchanfrage
-        // an deine Datenquelle (rezeptDataList) senden und die Ergebnisse filtern.
-        Log.d("Searches", "Search Query: $query") // Log-Nachricht hinzufügen
-
-        val filteredList = rezeptDataList.filter { rezept ->
-            rezept.name.contains(query, ignoreCase = true)   }
-
-        setupRecyclerView(filteredList)
-    }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.loadfromFireStore()
+
         binding.rezepteRecyclerView.setHasFixedSize(true)
 
-        // Laden oder Aktualisieren der Datenquelle
+        //RV wird beobachtet
         viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
             Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
-
-            // Die RecyclerView mit den Daten initialisieren
-            setupRecyclerView(rezeptDataList)
+            rezeptAdapter = RezeptAdapter(
+                viewModel,
+                viewModel.rezeptDataList.value ?: emptyList(),
+                findNavController()
+            )
+            // Verbinde den Adapter mit dem RecyclerView
+            binding.rezepteRecyclerView.adapter = rezeptAdapter
+            // Setze das Layout-Manager für den RecyclerView
+            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
+       /* viewModel.filteredNameList.observe(viewLifecycleOwner) { filteredRezepte ->
+            rezeptAdapter = RezeptAdapter(viewModel, filteredRezepte, findNavController())
+            binding.rezepteRecyclerView.adapter = rezeptAdapter
+            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        }*/
+
 
         // Suchfeld-Listener hinzufügen
         binding.searchView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Nicht benötigt
+                Log.d("Searches", "Before Text Changed: $s")
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Nicht benötigt
+                Log.d("Searches", "On Text Changed: $s")
             }
-
             override fun afterTextChanged(s: Editable?) {
-                val query = s.toString().trim() // Den eingegebenen Text abrufen und Leerzeichen entfernen
-                performSearch(query) // Die Textsuche durchführen
+                Log.d("Searches", "After Text Changed - Query: $s")
+                viewModel.filterNameByChar(s.toString())
             }
         })
-
-        // Weitere UI-Aktionen und Navigation hier...
-
-
-
-    //RV wird beobachtet
-        viewModel.rezeptDataList.observe(viewLifecycleOwner) { rezeptDataList ->
-            Log.d("FirebaseLoad", "Received data from Firebase: $rezeptDataList")
-
-            // Initialisiere den Adapter
-            val rezeptAdapter = RezeptAdapter(viewModel, rezeptDataList, findNavController())
-
-            // Verbinde den Adapter mit dem RecyclerView
-            binding.rezepteRecyclerView.adapter = rezeptAdapter
-
-            // Setze das Layout-Manager für den RecyclerView
-            binding.rezepteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            setupRecyclerView(rezeptDataList)
-
-        }
-
 
         binding.neuesRezeptBTN.setOnClickListener {
             Log.d("ButtonClicked", "Neues Rezept Button wurde geklickt")
@@ -171,11 +111,9 @@ class DataFragment : Fragment() {
             Log.d("videoweg", "weiterleitung")
             findNavController().navigate(R.id.action_dataFragment_to_VideoFragment)
         }
-
         binding.tipBTN.setOnClickListener {
             findNavController().navigate(R.id.action_dataFragment_to_tipFragment)
         }
-
         binding.rezepteBTN.setOnClickListener {
             findNavController().navigate(R.id.dataFragment)
         }
@@ -210,8 +148,6 @@ class DataFragment : Fragment() {
                     closeMenu()
                     true
                 }
-
-
                 else -> false
             }
         }
@@ -226,8 +162,6 @@ class DataFragment : Fragment() {
         val drawerLayout = binding.drawerLayout
         drawerLayout.closeDrawer(GravityCompat.START)
     }
-
-
 }
 
 

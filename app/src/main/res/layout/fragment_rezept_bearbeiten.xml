@@ -11,6 +11,7 @@
 
     <EditText
         android:id="@+id/editRezeptErstellerTV2"
+        android:textColor="@color/textColorPrimaryDay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
@@ -20,6 +21,7 @@
 
     <EditText
         android:id="@+id/editRezeptNameTV"
+        android:textColor="@color/textColorPrimaryDay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -31,6 +33,7 @@
 
     <EditText
         android:id="@+id/editRezeptZutatenTV"
+        android:textColor="@color/textColorPrimaryDay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -40,6 +43,7 @@
 
     <EditText
         android:id="@+id/editRezeptZubereitungTV"
+        android:textColor="@color/textColorPrimaryDay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="156dp"
@@ -54,6 +58,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
         android:text="Speichern"
+        android:elevation="20dp"
+
+        app:backgroundTint="@color/colorPrimaryDay"
+        app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,6 +72,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:text="Zurück"
+        android:elevation="20dp"
+
+        app:backgroundTint="@color/colorPrimaryDay"
+        app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

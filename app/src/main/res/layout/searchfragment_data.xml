@@ -8,72 +8,30 @@
     app:navGraph="@navigation/nav_graph"
     tools:context=".ui.DataFragment">
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/searchView2"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/videobuttonBTN"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/Rezeptsuche"
-            app:iconifiedByDefault="false"
-            app:queryHint="Suche Rezepte" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fitsSystemWindows="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:iconifiedByDefault="false"
+        android:hint="@string/Rezeptsuche"
+        app:layout_constraintBottom_toTopOf="@+id/drawerLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView2"
-        tools:context=".ui.HomeFragment"
-        tools:ignore="MissingConstraints">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rezepteRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="32dp"
-            tools:listitem="@layout/item_rezept">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/filteredRezeptRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="32dp"
-            tools:listitem="@layout/item_rezept">
-
-        </androidx.recyclerview.widget.RecyclerView>
-        <!-- Hamburger-Menü -->
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            app:menu="@menu/drawer_menu">
-
-        </com.google.android.material.navigation.NavigationView>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+        app:queryHint="Suche Rezepte" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -87,32 +45,68 @@
         android:id="@+id/neuesRezeptBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
         android:contentDescription="@string/content_description_neues_rezept_button"
         android:focusable="true"
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rezepteBTN"
-        app:layout_constraintStart_toEndOf="@+id/videobuttonBTN"
-        app:shapeAppearanceOverlay="@style/RoundedShape"
-    />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="403dp"
+        android:layout_height="649dp"
+        android:layout_marginTop="45dp"
+        android:fitsSystemWindows="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+        app:layout_constraintVertical_bias="0.0"
+        tools:context=".ui.HomeFragment"
+        tools:ignore="MissingConstraints">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rezepteRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:background="#FFFFFF"
+            tools:listitem="@layout/item_rezept">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <!-- Hamburger-Menü -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            app:menu="@menu/drawer_menu">
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/videobuttonBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
-        android:elevation="20dp"
-        android:stateListAnimator="@null"
-        android:text="Video"
-        app:backgroundTint="@color/colorPrimaryDay"
-        app:cornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
 
+        android:elevation="20dp"
+        android:text="Video"
+        app:cornerRadius="5dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/tipBTN"
@@ -143,10 +137,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:elevation="20dp"
-        android:stateListAnimator="@null"
         android:text="Rezepte"
-        app:cornerRadius="5dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -156,7 +148,6 @@
         android:layout_height="48dp"
         android:contentDescription="Hamburgermenu"
         android:src="@drawable/baseline_menu_24"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

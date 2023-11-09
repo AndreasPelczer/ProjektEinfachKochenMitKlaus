@@ -11,14 +11,17 @@
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true"
     app:cardPreventCornerOverlap="true"
-    app:navGraph="@navigation/nav_graph">
+    app:navGraph="@navigation/nav_graph"
+>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clickcardviewCV"
         android:layout_width="355dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/rezeptNameTV"
-        app:layout_constraintTop_toBottomOf="@+id/rezeptNameTV">
+        app:layout_constraintTop_toBottomOf="@+id/rezeptNameTV"
+        > <!-- Hintergrundfarbe für den Light-Modus -->
+
 
         <TextView
             android:id="@+id/rezeptNameTV"
