@@ -26,7 +26,7 @@ class SearchAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val rezept = dataset[position]
 
-        holder.binding.rezeptNameTV2.setOnClickListener {
+        holder.binding.searchCardCV.setOnClickListener {
             it.findNavController().navigate(
                 SearchFragmentDirections.actionSearchFragmentToRezeptDetailFragment(rezept.id))
         }
