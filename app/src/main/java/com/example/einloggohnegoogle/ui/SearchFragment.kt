@@ -55,8 +55,8 @@ class SearchFragment : Fragment() {
                 viewModel.filterNameByChar(s.toString())
             }
         })
-        /*binding.SearchBackBtn.setOnClickListener {
+        binding.searchBackBTN.setOnClickListener {
             findNavController().popBackStack()
-        }*/
+        }
     }
 }
