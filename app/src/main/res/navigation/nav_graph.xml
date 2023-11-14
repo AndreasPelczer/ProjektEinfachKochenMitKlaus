@@ -207,6 +207,14 @@
             android:id="@+id/action_searchFragment_to_rezeptDetailFragment"
             app:destination="@id/rezeptDetailFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/splashFragment2"
+        android:name="SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment2_to_dataFragment"
+            app:destination="@id/dataFragment" />
+    </dialog>
 
 
 </navigation>
