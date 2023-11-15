@@ -4,10 +4,14 @@ die das MVVM (Model-View-ViewModel) Architekturmuster verwendet.
 MVVM wird eingesetzt, um die Benutzeroberfläche (View) von der Geschäftslogik (ViewModel) zu trennen und 
 die Trennung der Datenrepräsentation (Model) zu ermöglichen.
 
+<img width="1081" alt="Bildschirmfoto 2023-11-15 um 09 37 02" src="https://github.com/AndreasPelczer/ProjektEinfachKochenMitKlaus/assets/134264285/0120282a-09a8-4edd-8089-8500d9d6a3a8">
+
 ## Code-Struktur
 Der Code ist in verschiedene Fragmente und ViewModel-Klassen unterteilt, 
 um die Benutzeroberfläche und die Dateninteraktionen zu verwalten. 
 Dabei wird das MVVM-Muster verwendet.
+
+![screenshot_einfachkochen](https://github.com/AndreasPelczer/ProjektEinfachKochenMitKlaus/assets/134264285/9a62c8d7-bf0e-40de-a99d-ff9a104436f1)
 
 DataFragment:
 Verantwortlich für die Anzeige einer Liste von Rezepten, die aus Firebase abgerufen wurden.
@@ -37,7 +41,8 @@ Verwendet RecyclerViews zur Anzeige von Listen von Rezepten, Videos und Sucherge
 ## YouTube-Integration: 
 Integriert YouTube-Video-Playlists, damit Benutzer verwandte Kochvideos anzeigen können.
 
-## Info API-Integration: 
+## Info API-Integration:
+
 Implementiert eine Info API, um zusätzliche Informationen abzurufen.
 
 # Verwendung:
@@ -94,4 +99,6 @@ Integration von Ernährungsinformationen:
 um Benutzern bei bestimmten Ernährungsbedürfnissen zu helfen.
 
 ## Integration von Feedback und Bewertungen:
+
+
 Ermögliche Benutzern, Rezepte zu bewerten und Feedback zu hinterlassen, um die Qualität und Popularität der Rezepte zu steigern.
